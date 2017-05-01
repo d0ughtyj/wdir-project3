@@ -21,7 +21,7 @@
       </div>
     </div>
     <ul>
-      <li ng-repeat = 'beers in main.beers' ng-click='main.showEdit(beers._id)'>
+      <li ng-repeat = "beers in main.beers | orderBy: 'name'" ng-click='main.showEdit(beers._id)'>
           {{beers.name}}
       </li>
     </ul>
