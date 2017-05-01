@@ -1,2 +1,6 @@
+<<<<<<< HEAD
+=======
+.gitignore
+>>>>>>> master
 node_modules
 ./99_beers_app/node_modules
