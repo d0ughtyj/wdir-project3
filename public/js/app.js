@@ -3,14 +3,23 @@ var app = angular.module('BeersApp', []);
 app.controller("MainController", ['$http', function($http){
   var controller = this;
   this.swapper = 0;
+
 this.next = function(){
   this.swapper++;
-  console.log(this.swapper);
 };
 
 this.prev = function() {
   this.swapper --;
-  console.log(this.swapper);
+};
+
+this.searchBeers = function(){
+  console.log('searching...');
+  $http({
+    method: 'GET',
+    url: '/beers/search/'+this.ibuMin+'/'+this.ibuMax,
+  }).then(function(response){
+    controller.beers = response.data;
+  });
 };
 
   this.create = function(){

@@ -8,6 +8,18 @@ router.get('/', function(req, res){
   });
 });
 
+router.get('/search/:min/:max', function(req, res){
+  console.log(req.params.min);
+  console.log(req.params.max);
+
+  Beers.find({
+    ibuMin:{$gte: req.params.min},
+    ibuMax:{$lte: req.params.max}
+  }, function(err, foundBeers){
+    res.json(foundBeers);
+  });
+});
+
 router.post('/', function(req, res){
   Beers.create(req.body, function(err, createdBeers){
     res.json(createdBeers);
