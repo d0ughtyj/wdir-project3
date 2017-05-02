@@ -14,13 +14,13 @@
 }
 
 .clsRegister{
-background: #c2ccfc;
+background: #FEF7E9;
 padding-left: 20px;
 padding-top: 20px;
 }
 
 .clsLogin{
-background: lightgrey;
+background: #FEF7E9;
 border-radius: 2px;
 font-size: 16px;
 padding-top: 0px;
@@ -28,18 +28,22 @@ padding-left: 20px;
 padding-bottom: 0px;
 }
 .clsLoginLogout{
-background: grey;
-border-radius: 2px;
+background: #FEF7E9;
+/*border-radius: 2px;*/
 font-size: 16px;
 padding-left: 20px;
 height:34px;
 }
 .clsUsername {
- background: lightgrey;
- border-radius: 2px;
+ background: #FEF7E9;
+ /*border-radius: 2px;*/
  font-size: 16px;
  padding-left: 20px;
  height: 34px;
+}
+
+.registerButton {
+	color: #36080B;
 }
 
 select option:empty { display:none }
