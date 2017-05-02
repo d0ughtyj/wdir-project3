@@ -1,3 +1,5 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
 body {
   background-color: #FEF7E9;
   color: #36080B;
@@ -26,6 +28,10 @@ nav {
 h6 {
   margin-left: 25px;
   font-size: 14px;
+}
+
+.glyphicon {
+  padding-right: 6px;
 }
 
 #submit {

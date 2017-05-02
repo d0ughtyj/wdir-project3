@@ -2,7 +2,7 @@
 <html ng-app='BeersApp'>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Beers on the Wall</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src='/js/app.js'></script>
     <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
@@ -10,15 +10,16 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="/css/style.css">
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller = 'MainController as main'>
     <header>
       <h1 id="title">99 Bottles of Beer on the Wall</h1>
     </header>
     <nav>
-      <h6>Register</h6>
-      <h6>Log In</h6>
+      <h6 id="register"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Register</h6>
+      <h6 id="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Log In</h6>
     </nav>
     <section class="container">
       <div data-role="main">
