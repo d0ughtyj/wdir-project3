@@ -3,8 +3,11 @@ var app = angular.module('BeersApp', ['rzModule']);
 app.controller("MainController", ['$scope', '$http', function($scope, $http){
   var controller = this;
   this.swapper = 0;
-  $scope.ibuMinFilter = 0;
-  $scope.value = "10";
+
+this.getBeer = function(beer){
+  this.selectedBeer=beer;
+  console.log(this.selectedBeer);
+};
 
   $scope.ibuSlider = {
     min: 0,
@@ -247,7 +250,18 @@ this.searchBeers = function(){
   	};
   //******************************************//
 
-
+  this.addFavorite =function(beer){
+    $http({
+      url: '/users/'+beer._id,
+      method: 'POST',
+    }).then(function(response) {
+      if (response.data.status == 200) {
+        console.log('added favorite');
+      } else {
+        console.log('error adding favorite');
+      }
+    });
+  };
 
 
 }]);

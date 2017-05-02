@@ -123,14 +123,23 @@
           rz-slider-options="srmSlider.options"></rzslider>
     </div>
     <ul>
-      <li ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
+      <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
           {{beers.name}}
           {{beers.ibuMin}} {{beers.ibuMax}}
           {{beers.abvMin}} {{beers.abvMax}}
           {{beers.srmMin}} {{beers.srmMax}}
-
       </li>
     </ul>
-
+<div ng-controller="userController as userCtrl">
+<div ng-if="main.selectedBeer!==undefined">
+  <h1>BEER</h1>
+  {{main.selectedBeer.name}}</br>
+  {{main.selectedBeer.description}}</br>
+  IBU: {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
+  ABV: {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
+  SRM: {{main.selectedBeer.srmMin}} - {{main.selectedBeer.srmMax}}</br>
+  <button ng-click=userCtrl.addFavorite(main.selectedBeer)>favorite</button>
+</div>
+</div>
   </body>
 </html>

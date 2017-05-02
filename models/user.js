@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
 	email: { type: String, default: "tbd" },
 	admin: { type: Boolean, default: false },
 	favorite: { type: String, default: "" },
-	password: { type: String, required: true }
+	password: { type: String, required: true },
+	favoriteBeers: []
 
 });
 

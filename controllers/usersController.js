@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('../models/user');
+var Beers = require('../models/beers');
 
 
 // index
@@ -34,6 +35,8 @@ router.post('/', function(req, res) {
 	});
 });
 
+
+
 // authenticate
 router.post('/login', function(req, res) {
 	User.findOne({ username: req.body.username }, function(err, foundUser) {
@@ -56,5 +59,16 @@ router.post('/logout', function(req, res) {
 	});
 });
 
+router.post('/:id', function(req, res) {
+	console.log(req.session.loggedInUser);
+	User.findById(req.session.loggedInUser.id, function(err, foundUser){
+			Beers.findById(req.params.id, function(err, foundBeer){
+				foundUser.favoriteBeers.push(foundBeer);
+				foundUser.save(function(err, savedUser){
+					res.json({ status: 200 });
+				});
+			});
+		});
+});
 
 module.exports = router;
