@@ -3,13 +3,13 @@
 }
 
 #user-message {
-	color:black;
+	color: #B54B02;
 	font-size: 16px;
 	height:34px;
 }
 
 .clsRegisterError{
-	background: lightyellow;
+	color: #B54B02;
 	padding-left: 20px;
 }
 
