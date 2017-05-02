@@ -1,0 +1,50 @@
+body {
+	font-family: Helvetica;
+	background-color: #FFFFFF;
+}
+
+#container {
+	width: 100%;
+}
+
+#user-message {
+	color:black;
+	font-size: 16px;
+	height:34px;
+}
+
+.clsRegisterError{
+	background: lightyellow;
+	padding-left: 20px;
+}
+
+.clsRegister{
+background: #c2ccfc;
+padding-left: 20px;
+padding-top: 20px;
+}
+
+.clsLogin{
+background: lightgrey;
+border-radius: 2px;
+font-size: 16px;
+padding-top: 0px;
+padding-left: 20px;
+padding-bottom: 0px;
+}
+.clsLoginLogout{
+background: grey;
+border-radius: 2px;
+font-size: 16px;
+padding-left: 20px;
+height:34px;
+}
+.clsUsername {
+ background: lightgrey;
+ border-radius: 2px;
+ font-size: 16px;
+ padding-left: 20px;
+ height: 34px;
+}
+
+select option:empty { display:none }
