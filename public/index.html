@@ -32,7 +32,7 @@
             </form>
         </div>
       </div>
-      <ul>
+      <ul class="list">
         <li ng-repeat = "beers in main.beers | orderBy: 'name'" ng-click='main.showEdit(beers._id)'>
             {{beers.name}}
         </li>
