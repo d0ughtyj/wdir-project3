@@ -30,6 +30,10 @@ h6 {
   font-size: 14px;
 }
 
+h6:hover {
+  color: #B54B02;
+}
+
 .glyphicon {
   padding-right: 6px;
 }
@@ -37,4 +41,20 @@ h6 {
 #submit {
   background-color: #B54B02;
   color: #FEF7E9;
+}
+
+#submit:hover {
+  background-color: #F5A510;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  color: #B54B02;
 }
