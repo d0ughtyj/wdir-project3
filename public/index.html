@@ -3,26 +3,58 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src='/js/app.js'></script>
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/rzslider.css"/>
+    <script src="/js/rzslider.js"></script>
+
+
   </head>
   <body ng-controller = 'MainController as main'>
     <h1>Beers</h1>
+
+    <div>
+      <rzslider
+          rz-slider-model="ibuSlider.min"
+          rz-slider-high="ibuSlider.max"
+          rz-slider-options="ibuSlider.options"></rzslider>
+    </div>
+
+    <div>
+      <rzslider
+          rz-slider-model="abvSlider.min"
+          rz-slider-high="abvSlider.max"
+          rz-slider-options="abmSlider.options"></rzslider>
+    </div>
+
+    <div ng-style="{'background-color': main.getColor(srmSlider.min)}">
+
+      <rzslider
+          rz-slider-model="srmSlider.min"
+          rz-slider-high="srmSlider.max"
+          rz-slider-options="srmSlider.options"></rzslider>
+    </div>
+
+
     <div data-role="main">
       <div data-role="main" class="ui-content">
         <form ng-submit = "main.searchBeers()">
-            <input type="text" ng-model="main.ibuMin" value="0" min="0" max="120">
-            <input type="text" ng-model="main.ibuMax" value="120" min="0" max="120">
+            <input type="text" ng-model="main.ibuMinFilter" value="0" min="0" max="120">
+            <input type="text" ng-model="main.ibuMaxFilter" value="120" min="0" max="120">
             <input type="submit" data-inline="true" value="Search">
           </form>
       </div>
     </div>
     <ul>
-      <li ng-repeat = 'beers in main.beers' ng-click='main.showEdit(beers._id)'>
+      <li ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
           {{beers.name}}
+          {{beers.ibuMin}} {{beers.ibuMax}}
+          {{beers.abvMin}} {{beers.abvMax}}
+          {{beers.srmMin}} {{beers.srmMax}}
+
       </li>
     </ul>
   </body>
