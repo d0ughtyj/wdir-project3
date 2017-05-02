@@ -29,7 +29,7 @@ router.post('/', function(req, res) {
 		if (err) {
 			res.json({ status: 422, error: err });
 		} else {
-			req.session.loggedInUser = { username: user.username, id: user.id }
+			req.session.loggedInUser = { username: user.username, id: user.id };
 			res.json({ status: 201, user: user });
 		}
 	});
@@ -44,7 +44,7 @@ router.post('/login', function(req, res) {
 			console.log('no user found');
 			res.json({ status: 401, message: 'Username not found' });
 		} else if (foundUser.authenticate(req.body.password)) {
-			req.session.loggedInUser = { username: foundUser.username, id: foundUser.id }
+			req.session.loggedInUser = { username: foundUser.username, id: foundUser.id };
 			res.json({ status: 200, user: foundUser, message: null });
 		} else {
 			console.log('password does not match');
