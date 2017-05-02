@@ -44,6 +44,10 @@ h6:hover {
   color: #B54B02;
 }
 
+h3 {
+  margin: 0;
+}
+
 .glyphicon {
   padding-right: 6px;
 }
