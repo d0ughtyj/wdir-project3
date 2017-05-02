@@ -1,0 +1,70 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+body {
+  background-color: #FEF7E9;
+  color: #36080B;
+}
+
+header {
+  background-color: #36080B;
+  color: #FEF7E9;
+  padding: 10px;
+  font-family: 'Fredericka the Great', cursive;
+  display: flex;
+  justify-content: space-between;
+}
+
+#title {
+  margin: 0;
+  padding: 5px;
+  font-size: 45px;
+}
+
+i {
+  margin-right: 25px;
+  -webkit-transform: rotate(25deg);
+  -moz-transform: rotate(25deg);
+  -o-transform: rotate(25deg);
+  color: #FEF7E9;
+}
+
+nav {
+  text-align: right;
+  padding-right: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+h6 {
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+h6:hover {
+  color: #B54B02;
+}
+
+.glyphicon {
+  padding-right: 6px;
+}
+
+#submit {
+  background-color: #B54B02;
+  color: #FEF7E9;
+}
+
+#submit:hover {
+  background-color: #F5A510;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  color: #B54B02;
+}

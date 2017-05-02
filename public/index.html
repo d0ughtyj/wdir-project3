@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src='/js/app.js'></script>
 
@@ -12,10 +11,42 @@
     <script src="/js/rzslider.js"></script>
 
 
+    <title>Beers on the Wall</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src='/js/app.js'></script>
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller = 'MainController as main'>
-    <h1>Beers</h1>
-
+    <header>
+      <h1 id="title">99 Bottles of Beer on the Wall</h1>
+      <i class="fa fa-beer fa-5x"></i>
+    </header>
+    <nav>
+      <h6 id="register"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Register</h6>
+      <h6 id="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Log In</h6>
+    </nav>
+    <section class="container">
+      <div data-role="main">
+        <div data-role="main" class="ui-content">
+          <form ng-submit = "main.searchBeers()">
+              <input type="text" ng-model="main.ibuMin" value="0" min="0" max="120">
+              <input type="text" ng-model="main.ibuMax" value="120" min="0" max="120">
+              <input id="submit" type="submit" data-inline="true" value="Search">
+            </form>
+        </div>
+      </div>
+      <ul class="list">
+        <li ng-repeat = "beers in main.beers | orderBy: 'name'" ng-click='main.showEdit(beers._id)'>
+            {{beers.name}}
+        </li>
+      </ul>
+    </section>
     <div>
       <rzslider
           rz-slider-model="ibuSlider.min"
@@ -57,5 +88,6 @@
 
       </li>
     </ul>
+
   </body>
 </html>
