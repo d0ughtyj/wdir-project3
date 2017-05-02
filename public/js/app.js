@@ -43,69 +43,9 @@ this.prev = function() {
 };
 
 this.getColor = function(srmColor){
-  if(srmColor===1){
-    return("#F3F993");
-  }else if(srmColor===2){
-      return("#F5F75C");
-  }else if(srmColor===3){
-      return("#F6F513");
-  }else if(srmColor===4){
-      return("#EAE615");
-  }else if(srmColor===5){
-      return("#E0D01B");
-  }else if(srmColor===6){
-      return("#D5BC26");
-  }else if(srmColor===7){
-      return("#CDAA37");
-  }else if(srmColor===8){
-      return("#C1963C");
-  }else if(srmColor===9){
-      return("#BE8C3A");
-  }else if(srmColor===10){
-      return("#BE823A");
-  }else if(srmColor===11){
-      return("#C17A37");
-  }else if(srmColor===12){
-      return("#BF7138");
-  }else if(srmColor===13){
-      return("#BC6733");
-  }else if(srmColor===14){
-      return("#B26033");
-  }else if(srmColor===15){
-      return("#A85839");
-  }else if(srmColor===16){
-      return("#985336");
-  }else if(srmColor===17){
-      return("#8D4C32");
-  }else if(srmColor===18){
-      return("#7C452D");
-  }else if(srmColor===19){
-      return("#6B3A1E");
-  }else if(srmColor===20){
-      return("#5D341A");
-  }else if(srmColor===21){
-      return("#4E2A0C");
-  }else if(srmColor===22){
-      return("#4A2727");
-  }else if(srmColor===23){
-      return("#361F1B");
-  }else if(srmColor===24){
-      return("#261716");
-  }else if(srmColor===25){
-      return("#231716");
-  }else if(srmColor===26){
-      return("#19100F");
-  }else if(srmColor===27){
-      return("#16100F");
-  }else if(srmColor===28){
-      return("#120D0C");
-  }else if(srmColor===29){
-      return("#100B0A");
-  }else if(srmColor===30){
-      return("#050B0A");
-  }else{
-    return("#000000");
-  }
+  var colors = ['#FFE699', '#FFD878', '#FFCA5A', '#FFBF42', '#FBB123', '#F8A600', '#F39C00', '#EA8F00', '#E58500', '#DE7C00', '#D77200', '#CF6900', '#CB6200', '#C35900', '#BB5100', '#B54C00', '#B04500', '#A63E00', '#A13700', '#9B3200', '#952D00', '#8E2900', '#882300', '#821E00', '#7B1A00', '#771900', '#701400', '#6A0E00', '#660D00', '#5E0B00', '#5A0A02', '#560A05', '#520907', '#4C0505', '#470606', '#440607', '#3F0708', '#3B0607', '#3A070B', '#36080A'];
+  return(colors[srmColor-1]);
+
 };
 
 $scope.byRange = function (ibumin, ibumax, abvmin, abvmax, srmmin, srmmax, minibu, maxibu, minabv, maxabv, minsrm, maxsrm) {
