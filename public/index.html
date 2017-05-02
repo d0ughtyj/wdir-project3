@@ -112,7 +112,11 @@
           rz-slider-high="abvSlider.max"
           rz-slider-options="abmSlider.options"></rzslider>
     </div>
-    <div ng-style="{'background-color': main.getColor(srmSlider.min)}">
+    <!-- <div ng-style="{'background-color': main.getColor(srmSlider.min)}"> -->
+
+      <div ng-style="{'background-image':'-webkit-gradient(linear, left top, right top,   color-stop(0%,'+ main.getColor(srmSlider.min)+'), color-stop(100%, '+main.getColor(srmSlider.max)+'))'}">
+
+
       SRM<rzslider
           rz-slider-model="srmSlider.min"
           rz-slider-high="srmSlider.max"
