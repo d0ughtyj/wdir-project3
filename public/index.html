@@ -17,89 +17,87 @@
     <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+    <!-- FAVICON -->
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller = 'MainController as main'>
+    <!-- HEADER -->
     <header>
       <h1 id="title">99 Bottles of Beer on the Wall</h1>
       <i class="fa fa-beer fa-5x"></i>
     </header>
+    <!-- NAVIGATION -->
     <nav>
       <h6 id="register"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Register</h6>
       <h6 id="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Log In</h6>
     </nav>
-
+<!-- BODY OF SITE -->
+<main class="container">
+    <!-- LOGIN AND REGISTRATION -->
     <div ng-controller="userController as userCtrl">
-
-    <div id="container" class="col-sx-12">
-
-    	<section class="clsUsername col-xs-6">
-    				<span ng-if="userCtrl.loggedIn" id="user-message"><h4>Welcome: {{ userCtrl.user.username }}</h4></span>
-    				<span ng-if="!userCtrl.loggedIn" id="user-message"></span> <!-- maybe delete this line -->
-    	</section>
-
-    	<section class="clsLoginLogout col-xs-6">
-    				<span ng-if="!userCtrl.loggedIn" class="registerButton btn btn-primary"
-    				ng-click="userCtrl.showRegistration = !userCtrl.showRegistration">
-    					Register / Log In
-    				</span>
-    				<span ng-if="userCtrl.loggedIn" class="registerButton btn btn-primary"
-    				ng-click="userCtrl.logout()">
-    					Log Out
-    				</span>
-    	</section>
-
-    <section class="clsRegister">
-    			<div ng-if="userCtrl.showRegistration" id="registration-container">
-    				<form class="registration-form" ng-submit="userCtrl.register()">
-    					<h3>Regisister</h3>
-    					<div class="form-group">
-    					<label for="userCtrl.registerForm.username">Username: </label>
-    					<input class="register-form-input" type="text" ng-model="userCtrl.registerForm.username" placeholder="user name" required>
-    				</div>
-    					<div class="form-group">
-    					<label for="userCtrl.registerForm.password">Password:</label>
-    					<input class="register-form-input" type="password" ng-model="userCtrl.registerForm.password" placeholder="password" required>
-    				</div>
-    					<div class="form-group">
-    						<label for="userCtrl.registerForm.state">State:</label>
-    					<input class="register-form-input" type="text" ng-model="userCtrl.registerForm.state" placeholder="State"/>
-    				</div>
-    				<div class="form-group">
-    					<label for="userCtrl.registerForm.zipcode">Zip Code:</label>
-    				<input class="register-form-input" type="text" ng-model="userCtrl.registerForm.zipcode" placeholder="Zip Code"/>
-    			</div>
-    					<div class="form-group">
-    					<button class="register-form-button btn btn-primary" type="submit">Register</button>
-    				</div>
-    			</div>
-    				</form>
-    </section>
-
-    <section class="clsRegisterError">
-    		<h2 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h2>
-    </section>
-
-    <section class="clsLogin">
-    				<form ng-if="userCtrl.showRegistration" class="clsLoginForm" ng-submit="userCtrl.login()">
-    					<br><h3>Log In</h3>
-    					<div class="form-group">
-    						<label for="userCtrl.loginForm.username">Username:</label>
-    					<input class="register-form-input" type="text" ng-model="userCtrl.loginForm.username" placeholder="user name" required/>
-    				</div>
-    					<div class="form-group">
-    						<label for="userCtrl.loginForm.password">Password:</label>
-    					<input class="register-form-input" type="password" ng-model="userCtrl.loginForm.password" placeholder="password" required/>
-    				</div>
-    					<div class="form-group">
-    					<button class="register-form-button btn btn-primary" type="submit">Log in</button>
-    				</div>
-    				</form>
-    </section>
-
+      <div id="container" class="col-sx-12">
+        <section class="clsUsername col-xs-6">
+              <span ng-if="userCtrl.loggedIn" id="user-message"><h4>Welcome: {{ userCtrl.user.username }}</h4></span>
+              <span ng-if="!userCtrl.loggedIn" id="user-message"></span> <!-- maybe delete this line -->
+        </section>
+        <section class="clsLoginLogout col-xs-6">
+              <span ng-if="!userCtrl.loggedIn" class="registerButton btn btn-primary"
+              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration">
+                Register / Log In
+              </span>
+              <span ng-if="userCtrl.loggedIn" class="registerButton btn btn-primary"
+              ng-click="userCtrl.logout()">
+                Log Out
+              </span>
+        </section>
+        <section class="clsRegister">
+            <div ng-if="userCtrl.showRegistration" id="registration-container">
+              <form class="registration-form" ng-submit="userCtrl.register()">
+                <h3>Regisister</h3>
+                <div class="form-group">
+                <label for="userCtrl.registerForm.username">Username: </label>
+                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.username" placeholder="user name" required>
+              </div>
+                <div class="form-group">
+                <label for="userCtrl.registerForm.password">Password:</label>
+                <input class="register-form-input" type="password" ng-model="userCtrl.registerForm.password" placeholder="password" required>
+              </div>
+                <div class="form-group">
+                  <label for="userCtrl.registerForm.state">State:</label>
+                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.state" placeholder="State"/>
+              </div>
+              <div class="form-group">
+                <label for="userCtrl.registerForm.zipcode">Zip Code:</label>
+              <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.zipcode" placeholder="Zip Code"/>
+            </div>
+                <div class="form-group">
+                <button class="register-form-button btn btn-primary" type="submit">Register</button>
+              </div>
+            </div>
+              </form>
+          </section>
+      <section class="clsRegisterError">
+          <h2 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h2>
+      </section>
+      <section class="clsLogin">
+              <form ng-if="userCtrl.showRegistration" class="clsLoginForm" ng-submit="userCtrl.login()">
+                <br><h3>Log In</h3>
+                <div class="form-group">
+                  <label for="userCtrl.loginForm.username">Username:</label>
+                <input class="register-form-input" type="text" ng-model="userCtrl.loginForm.username" placeholder="user name" required/>
+              </div>
+                <div class="form-group">
+                  <label for="userCtrl.loginForm.password">Password:</label>
+                <input class="register-form-input" type="password" ng-model="userCtrl.loginForm.password" placeholder="password" required/>
+              </div>
+                <div class="form-group">
+                <button class="register-form-button btn btn-primary" type="submit">Log in</button>
+              </div>
+              </form>
+        </section>
+        </div>
     </div>
-  </div>
-
+  <!-- SLIDERS -->
     <div>
       IBU<rzslider
           rz-slider-model="ibuSlider.min"
@@ -122,6 +120,7 @@
           rz-slider-high="srmSlider.max"
           rz-slider-options="srmSlider.options"></rzslider>
     </div>
+    <!-- LIST OF STYLES -->
     <ul>
       <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
           {{beers.name}}
@@ -130,8 +129,9 @@
           {{beers.srmMin}} {{beers.srmMax}}
       </li>
     </ul>
-<div ng-controller="userController as userCtrl">
-<div ng-if="main.selectedBeer!==undefined">
+    <!-- SHOW PAGE FOR STYLE -->
+  <div ng-controller="userController as userCtrl">
+  <div ng-if="main.selectedBeer!==undefined">
   <h1>BEER</h1>
   {{main.selectedBeer.name}}</br>
   {{main.selectedBeer.description}}</br>
@@ -139,7 +139,8 @@
   ABV: {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
   SRM: {{main.selectedBeer.srmMin}} - {{main.selectedBeer.srmMax}}</br>
   <button ng-click=userCtrl.addFavorite(main.selectedBeer)>favorite</button>
-</div>
-</div>
+  </div>
+  </div>
+</main>
   </body>
 </html>
