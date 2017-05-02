@@ -1,0 +1,110 @@
+.clsSrmContainer{
+  width:50%;
+  height:50%;
+  -webkit-column-count: 10; /* Chrome, Safari, Opera */
+  -moz-column-count: 10; /* Firefox */
+  column-count: 10;
+}
+
+
+.clsSrm{
+  width: 50px;
+  height: 50px;
+  border: 1px solid grey;
+
+}
+
+#srm1{
+  background: #F3F993;
+}
+
+
+#srm2 {
+  background: #F5F75C;
+}
+
+#srm3 {
+  background: #F6F513;
+}
+#srm4 {
+  background: #EAE615;
+}
+#srm5 {
+  background: #E0D01B;
+}
+#srm6 {
+  background: #D5BC26;
+}
+#srm7 {
+  background: #CDAA37;
+}
+#srm8 {
+  background: #C1963C;
+}
+#srm9 {
+  background: #BE8C3A;
+}
+#srm10 {
+  background: #BE823A;
+}
+#srm11 {
+  background: #C17A37;
+}
+#srm12 {
+  background: #BF7138;
+}
+#srm13 {
+  background: #BC6733;
+}
+#srm14 {
+  background: #B26033;
+}
+#srm15 {
+  background: #A85839;
+}
+#srm16 {
+  background: #985336;
+}
+#srm17 {
+  background: #8D4C32;
+}
+#srm18 {
+  background: #7C452D;
+}
+#srm19 {
+  background: #6B3A1E;
+}
+#srm20 {
+  background: #5D341A;
+}
+}
+#srm21 {
+  background: #4E2A0C;
+}
+#srm22 {
+  background: #4A2727;
+}
+#srm23 {
+  background: #361F1B;
+}
+#srm24 {
+  background: #261716;
+}
+#srm25 {
+  background: #231716;
+}
+#srm26 {
+  background: #19100F;
+}
+#srm27 {
+  background: #16100F;
+}
+#srm28 {
+  background: #120D0C;
+}
+#srm29 {
+  background: #100B0A;
+}
+#srm30 {
+  background: #050B0A;
+}
