@@ -50,7 +50,7 @@
 <!-- BODY OF SITE -->
 <main ng-controller="userController as userCtrl" class="container">
     <!-- LOGIN AND REGISTRATION -->
-  <button ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true">User Profile</Button>
+  <button ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true">User Profile</Button>
       <div id="userProfile" ng-if="userCtrl.showProfile==true">
         <button ng-click="userCtrl.deleteUser(userCtrl.user._id)">Delete User</button>
       <section class="clsRegister">
