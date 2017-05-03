@@ -126,27 +126,32 @@
             rz-slider-options="srmSlider.options"></rzslider>
       </div>
     </section>
-    <!-- LIST OF STYLES -->
-    <ul>
-      <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
-          {{beers.name}}
-          <!-- {{beers.ibuMin}} {{beers.ibuMax}}
-          {{beers.abvMin}} {{beers.abvMax}}
-          {{beers.srmMin}} {{beers.srmMax}} -->
-      </li>
-    </ul>
-    <!-- SHOW PAGE FOR STYLE -->
-  <div ng-controller="userController as userCtrl">
-  <div ng-if="main.selectedBeer!==undefined">
-  <h1>BEER</h1>
-  {{main.selectedBeer.name}}</br>
-  {{main.selectedBeer.description}}</br>
-  IBU: {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
-  ABV: {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
-  SRM: {{main.selectedBeer.srmMin}} - {{main.selectedBeer.srmMax}}</br>
-  <button ng-click=userCtrl.addFavorite(main.selectedBeer)>favorite</button>
-  </div>
-  </div>
+    <section id="listandshow">
+      <!-- LIST OF STYLES -->
+      <div id="left">
+        <ul>
+          <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
+              {{beers.name}}
+              <!-- {{beers.ibuMin}} {{beers.ibuMax}}
+              {{beers.abvMin}} {{beers.abvMax}}
+              {{beers.srmMin}} {{beers.srmMax}} -->
+          </li>
+        </ul>
+      </div>
+      <!-- SHOW PAGE FOR STYLE -->
+      <div id="right">
+        <div ng-controller="userController as userCtrl">
+        <div ng-if="main.selectedBeer!==undefined">
+        <h1 class="beername">{{main.selectedBeer.name}}</h1>
+        <button ng-click=userCtrl.addFavorite(main.selectedBeer) id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+        <p>{{main.selectedBeer.description}}</p></br>
+        <strong>IBU:</strong> {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
+        <strong>ABV:</strong> {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
+        <strong>SRM:</strong> {{main.selectedBeer.srmMin}} - {{main.selectedBeer.srmMax}}</br>
+        </div>
+        </div>
+      </div>
+    </section>
 </main>
   </body>
 </html>
