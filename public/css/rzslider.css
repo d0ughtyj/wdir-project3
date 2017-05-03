@@ -91,8 +91,9 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
-  background-color: #FEF7E9;
-  border-radius: 16px;
+  /*background-color: #FEF7E9;*/
+  /*border-radius: 16px;*/
+  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/32/beer-icon.png');
 }
 
 .rzslider .rz-pointer:after {
@@ -101,13 +102,13 @@
   left: 12px;
   width: 8px;
   height: 8px;
-  background: #36080B;
+  /*background: #36080B;*/
   border-radius: 4px;
   content: '';
 }
 
 .rzslider .rz-pointer:hover:after {
-  background-color: #36080B;
+  /*background-color: #36080B;*/
 }
 
 .rzslider .rz-pointer.rz-active {
@@ -115,7 +116,7 @@
 }
 
 .rzslider .rz-pointer.rz-active:after {
-  background-color: #B54B02;
+  /*background-color: #B54B02;*/
 }
 
 .rzslider .rz-bubble {
