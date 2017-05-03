@@ -5,6 +5,14 @@ app.controller("MainController", ['$scope', '$timeout', '$http', function($scope
   var controller = this;
   this.swapper = 0;
 
+//**************************************************//
+// show main map
+this.includePathMap = 'maps/map.html';
+  console.log('show map click');
+	this.changeInclude = function(){
+		this.includePath = 'maps/map.html';
+	};
+//**************************************************//
   this.checkFavorite = function(user, beer){
     var found=false;
     for(var i=0; i<user.favoriteBeers.length; i++){
