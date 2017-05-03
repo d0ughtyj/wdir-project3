@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="ngMap">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U76XKfnUdY"
+  type="text/javascript"></script>
+
+<script src="ng-map.min.js"></script>
+<script src="map_app.js"></script>
+
+<style>
+    ng-map {
+      height:400px;
+    }
+</style>
+</head>
+
+<body>
+  <div id="map-canvas">
+    <ng-map zoom="3" center="40, -90">
+      <fusion-tables-layer
+        query= "{ select: 'breweries',
+          from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu'}",
+          heatmap = '{enabled: true}'>
+      </fusion-tables-layer>
+    </ng-map>
+  </div>
+</body>
+
+</html>
