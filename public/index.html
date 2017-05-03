@@ -205,8 +205,8 @@
         <!-- <div ng-controller="userController as userCtrl"> -->
         <div ng-if="main.selectedBeer!==undefined">
         <h1 class="beername">{{main.selectedBeer.name}}</h1>
-        <button ng-if="userCtrl.loggedIn && !main.favorite" ng-click="userCtrl.addFavorite(main.selectedBeer); main.makeTrue()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
-        <button ng-if="userCtrl.loggedIn && main.favorite" ng-click="userCtrl.removeFavorite(main.selectedBeer); main.makeFalse()" id="favorite" class="fa fa-beer" aria-hidden="true"></button>
+        <button ng-if="userCtrl.loggedIn && !main.favorite" ng-click="userCtrl.addFavorite(main.selectedBeer); main.makeTrue()" id="favorite" class="fa fa-heart-o" aria-hidden="true"></button>
+        <button ng-if="userCtrl.loggedIn && main.favorite" ng-click="userCtrl.removeFavorite(main.selectedBeer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
         <p>{{main.selectedBeer.description}}</p></br>
         <strong>IBU:</strong> {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
         <strong>ABV:</strong> {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>

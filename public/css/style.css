@@ -128,8 +128,11 @@ h5 {
   width: 50%;
 }
 
+#favorite {
+  color: #8D2603;
+}
 #favorite:hover {
-  color: red;
+  color: #F5A510;
 }
 
 .beername {
