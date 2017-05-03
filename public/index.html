@@ -48,9 +48,11 @@
     </div>
     </header>
 <!-- BODY OF SITE -->
-<main class="container">
+<main ng-controller="userController as userCtrl" class="container">
     <!-- LOGIN AND REGISTRATION -->
-    <div ng-controller="userController as userCtrl">
+    <div>
+      <button ng-if="userCtrl.loggedIn" ng-click="userCtrl.deleteUser(userCtrl.user._id)">Delete User</button>
+
       <div id="container" class="col-sx-12">
         <nav>
         <section class="clsUsername col-xs-6">
@@ -161,18 +163,20 @@
       </div>
       <!-- SHOW PAGE FOR STYLE -->
       <div id="right">
-        <div ng-controller="userController as userCtrl">
+        <!-- <div ng-controller="userController as userCtrl"> -->
         <div ng-if="main.selectedBeer!==undefined">
         <h1 class="beername">{{main.selectedBeer.name}}</h1>
-        <button ng-click=userCtrl.addFavorite(main.selectedBeer) id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+        <button ng-if="userCtrl.loggedIn" ng-click=userCtrl.addFavorite(main.selectedBeer) id="favorite" class="fa fa-heart" aria-hidden="true"></button>
         <p>{{main.selectedBeer.description}}</p></br>
         <strong>IBU:</strong> {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
         <strong>ABV:</strong> {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
         <strong>SRM:</strong> {{main.selectedBeer.srmMin}} - {{main.selectedBeer.srmMax}}</br>
         </div>
-        </div>
+        <!-- </div> -->
       </div>
     </section>
+
 </main>
+
   </body>
 </html>
