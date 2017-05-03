@@ -161,21 +161,21 @@ this.searchBeers = function(){
 
 //-------------MODAL-------------//
 
-var $openBtn = $('#question')
+var $openBtn = $('#question');
 var $modal = $('#modal');
-var $closeBtn = $('#closeBtn')
+var $closeBtn = $('#closeBtn');
 $openBtn.click(function() {
   $scope.$apply(function() {
     console.log('open clicked');
     $modal.css('display', 'block');
-  })
-})
+  });
+});
 $closeBtn.click(function() {
   $scope.$apply(function(){
     console.log('close clicked');
-    $modal.css('display', 'none')
-  })
-})
+    $modal.css('display', 'none');
+  });
+});
 
 }]);//main controller close
 
@@ -317,6 +317,8 @@ $closeBtn.click(function() {
       method: 'POST',
     }).then(function(response) {
       if (response.data.status == 200) {
+        self.user.favoriteBeers.push(beer);
+        console.log(self);
         console.log('added favorite');
       } else {
         console.log('error adding favorite');
@@ -329,7 +331,14 @@ $closeBtn.click(function() {
       url: '/users/removeFav/'+beer._id,
       method: 'POST',
     }).then(function(response) {
+      var bi = 0;
       if (response.data.status == 200) {
+        for(var i=0; i<self.user.favoriteBeers.length; i++){
+          if(self.user.favoriteBeers[i]==beer){
+           bi = i;
+          }
+        }
+        self.user.favoriteBeers.splice(bi, 1);
         console.log('removed favorite');
       } else {
         console.log('error removing favorite');
