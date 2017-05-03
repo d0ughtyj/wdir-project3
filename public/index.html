@@ -30,14 +30,11 @@
 <main class="container">
     <!-- LOGIN AND REGISTRATION -->
     <div ng-controller="userController as userCtrl">
-
-
-
       <div id="container" class="col-sx-12">
         <nav>
         <section class="clsUsername col-xs-6">
-              <span ng-if="userCtrl.loggedIn" id="user-message"><h4>Welcome: {{ userCtrl.user.username }}</h4></span>
-              <span ng-if="!userCtrl.loggedIn" id="user-message"></span> <!-- maybe delete this line -->
+              <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
+              <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
@@ -46,7 +43,7 @@
               </span>
               <span ng-if="userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.logout()">
-                Log Out
+                <h6><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Log Out</h6>
               </span>
         </section>
         </nav>
@@ -102,28 +99,30 @@
         </div>
     </div>
   <!-- SLIDERS -->
-    <div>
-      IBU<rzslider
-          rz-slider-model="ibuSlider.min"
-          rz-slider-high="ibuSlider.max"
-          rz-slider-options="ibuSlider.options"></rzslider>
-    </div>
-    <div>
-      ABV<rzslider
-          rz-slider-model="abvSlider.min"
-          rz-slider-high="abvSlider.max"
-          rz-slider-options="abmSlider.options"></rzslider>
-    </div>
-    <!-- <div ng-style="{'background-color': main.getColor(srmSlider.min)}"> -->
+    <section class="sliders">
+      <div>
+        IBU<rzslider
+            rz-slider-model="ibuSlider.min"
+            rz-slider-high="ibuSlider.max"
+            rz-slider-options="ibuSlider.options"></rzslider>
+      </div>
+      <div>
+        ABV<rzslider
+            rz-slider-model="abvSlider.min"
+            rz-slider-high="abvSlider.max"
+            rz-slider-options="abmSlider.options"></rzslider>
+      </div>
+      <!-- <div ng-style="{'background-color': main.getColor(srmSlider.min)}"> -->
 
-      <div ng-style="{'background-image':'-webkit-gradient(linear, left top, right top,   color-stop(0%,'+ main.getColor(srmSlider.min)+'), color-stop(50%, '+main.getMiddleColor(srmSlider.max, srmSlider.min)+'), color-stop(100%, '+main.getColor(srmSlider.max)+'))'}">
+        <div ng-style="{'background-image':'-webkit-gradient(linear, left top, right top,   color-stop(0%,'+ main.getColor(srmSlider.min)+'), color-stop(50%, '+main.getMiddleColor(srmSlider.max, srmSlider.min)+'), color-stop(100%, '+main.getColor(srmSlider.max)+'))'}">
 
 
-      SRM<rzslider
-          rz-slider-model="srmSlider.min"
-          rz-slider-high="srmSlider.max"
-          rz-slider-options="srmSlider.options"></rzslider>
-    </div>
+        SRM<rzslider
+            rz-slider-model="srmSlider.min"
+            rz-slider-high="srmSlider.max"
+            rz-slider-options="srmSlider.options"></rzslider>
+      </div>
+    </section>
     <!-- LIST OF STYLES -->
     <ul>
       <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
