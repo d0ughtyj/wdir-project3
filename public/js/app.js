@@ -5,9 +5,31 @@ app.controller("MainController", ['$scope', '$timeout', '$http', function($scope
   var controller = this;
   this.swapper = 0;
 
-this.getBeer = function(beer){
+  this.checkFavorite = function(user, beer){
+    var found=false;
+    for(var i=0; i<user.favoriteBeers.length; i++){
+      if(user.favoriteBeers[i]._id === beer._id){
+        return(true);
+      }
+    }
+    return(false);
+  };
+
+  this.makeFalse = function(){
+    console.log("MAKING FALSE");
+    this.favorite=false;
+  };
+
+  this.makeTrue = function(){
+    console.log("MAKING TRUE");
+    this.favorite=true;
+  };
+
+this.getBeer = function(user, beer){
+  console.log(user);
   this.selectedBeer=beer;
-  console.log(this.selectedBeer);
+  this.favorite=this.checkFavorite(user, beer);
+  console.log(this.favorite);
 };
 
 this.refreshSlider = function () {
@@ -158,10 +180,10 @@ $closeBtn.click(function() {
 }]);//main controller close
 
 
-  app.controller('userController', ['$http', '$timeout', function($http, $timeout) {
+  app.controller('userController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
   	var self = this;
-
+    this.showProfile = false;
   	this.isFound = false;
   	this.finding = false;
   	this.requestError = null;
@@ -289,8 +311,9 @@ $closeBtn.click(function() {
   };
 
   this.addFavorite =function(beer){
+    console.log("FAVORITE");
     $http({
-      url: '/users/'+beer._id,
+      url: '/users/addFav/'+beer._id,
       method: 'POST',
     }).then(function(response) {
       if (response.data.status == 200) {
@@ -300,6 +323,24 @@ $closeBtn.click(function() {
       }
     });
   };
+
+  this.removeFavorite =function(beer){
+    $http({
+      url: '/users/removeFav/'+beer._id,
+      method: 'POST',
+    }).then(function(response) {
+      if (response.data.status == 200) {
+        console.log('removed favorite');
+      } else {
+        console.log('error removing favorite');
+      }
+    });
+  };
+
+
+
+
+
 
 
 }]);
