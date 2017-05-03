@@ -79,4 +79,15 @@ button {
 
 .sliders {
   margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #36080B;
+  border: 5px solid #36080B;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h5 {
+  color: #FEF7E9;
+  text-align: center;
+  font-size: 25px;
 }
