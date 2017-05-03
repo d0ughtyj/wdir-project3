@@ -168,49 +168,9 @@ this.searchBeers = function(){
   	};
 
 
-  	// this.getUser(function() {
-  	// 	console.log('Logged in User: ', this.user);
-  	// });
-
-  //*************************************************//
-  // jimd we need this function for user auth
-  		// this.getUser(function() {
-  		// 		if (self.loggedIn && self.user) {
-  		// 					console.log('Form data: ', self.newPlayerForm);
-  		// 					$http({
-  		// 						method: 'POST',
-  		// 						url: '/players',
-  		// 						data: self.newPlayerForm
-  		// 					}).then(function(result) {
-  		// 						if (result.data.errors) {
-  		// 							console.log('Error: ', result);
-  		// 							self.newPlayerError = "Please enter all the info";
-  		// 						} else {
-  		// 							console.log('Created Player (201): ', result.data);
-  		// 							console.log("THIS IS THIS: ", this);
-  		// 							self.newPlayerForm = {};
-  		// 							console.log('old players list: ', self.playersList);
-  		// 							self.playersList.push(result.data);
-  		// 						}
-  		// 					}, function(serverError) {
-  		// 						console.log(serverError);
-  		// 					});
-  		// 		} else {
-  		// 			self.newPlayerError = "Log in to add a player";
-  		// 		} // end user check
-  		// }); // end getUser
-  	//} // end process new player
-
-
-  	//*************************************************//
-  	this.resetState = function() {
-  		document.body.scrollTop = 0;
-  	};
-
-  	//*************************************************//
-  	this.getNumber = function(num) {
-  		return new Array(num);
-  	};
+  	this.getUser(function() {
+  		console.log('Logged in User: ', self.user);
+  	});
 
   //******************************************//
   	this.register = function(userPass) {
