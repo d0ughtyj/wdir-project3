@@ -6,8 +6,8 @@
 <style type="text/css">
 html, body, #googft-mapCanvas {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 5;
+  padding: 5;
   width: 100%;
 }
 #googft-legend{background-color:#fff;border:1px solid #000;font-family:Arial,sans-serif;font-size:12px;margin:5px;padding:10px 10px 8px}#googft-legend p{font-weight:bold;margin-top:0}#googft-legend div{margin-bottom:5px}.googft-legend-swatch{border:1px solid;float:left;height:12px;margin-right:8px;width:20px}.googft-legend-range{margin-left:0}.googft-dot-icon{margin-right:8px}.googft-paddle-icon{height:24px;left:-8px;margin-right:-8px;position:relative;vertical-align:middle;width:24px}.googft-legend-source{margin-bottom:0;margin-top:8px}.googft-legend-source a{color:#666;font-size:11px}
@@ -29,7 +29,7 @@ html, body, #googft-mapCanvas {
     mapDiv.style.width = isMobile ? '100%' : '800px';
     mapDiv.style.height = isMobile ? '100%' : '500px';
     var map = new google.maps.Map(mapDiv, {
-      center: new google.maps.LatLng(36.90910912720464, -96.59911733437502),
+      center: new google.maps.LatLng(38.12035052130836, -96.36840444375002),
       zoom: 4,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
@@ -70,17 +70,16 @@ html, body, #googft-mapCanvas {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+
+
 </head>
 
 <body>
-
-<!--- 99 beers -->
   <div id="map-canvas">
     <hr>
     <h3>Brewery Locations</h3>
     <hr>
-<!--- end 99 beers -->
-
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend"></input>
   <div id="googft-legend">
@@ -102,8 +101,6 @@ html, body, #googft-mapCanvas {
     </div>
     <input id="googft-legend-close" style="display:none" type="button" value="Hide"></input>
   </div>
-
-</div> <!-- 99 beers -->
-
+</div>
 </body>
 </html>
