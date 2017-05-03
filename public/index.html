@@ -50,51 +50,14 @@
 <!-- BODY OF SITE -->
 <main ng-controller="userController as userCtrl" class="container">
     <!-- LOGIN AND REGISTRATION -->
-  <button ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true">User Profile</Button>
-      <div id="userProfile" ng-if="userCtrl.showProfile==true">
-        <button ng-click="userCtrl.deleteUser(userCtrl.user._id)">Delete User</button>
-      <section class="clsRegister">
-          <div id="registration-container">
-            <form class="form-inline" ng-submit="userCtrl.update(userCtrl.user)">
-              <h3>Update</h3>
-              <div class="form-group">
-              <label for="userCtrl.user.username">Username</label><br/>
-              <input class="register-form-input" type="text" ng-model="userCtrl.user.username" placeholder="Username" required>
-            </div>
-              <div class="form-group">
-              <label for="userCtrl.user.password">Password</label><br/>
-              <input class="register-form-input" type="password" ng-model="userCtrl.user.newpassword" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-              <label for="userCtrl.user.passwordConfirm">Confirm Password</label><br/>
-              <input class="register-form-input" type="password" ng-model="userCtrl.user.passwordConfirm" placeholder="Password" required>
-            </div>
-              <div class="form-group">
-                <label for="userCtrl.user.state">State</label><br/>
-              <input class="register-form-input" type="text" ng-model="userCtrl.user.state" placeholder="State"/>
-            </div>
-            <div class="form-group">
-              <label for="userCtrl.user.zipcode">Zip Code</label><br/>
-            <input class="register-form-input" type="text" ng-model="userCtrl.user.zipcode" placeholder="Zip Code"/>
-          </div><br/>
-              <div class="form-group">
-              <button class="register-form-button btn btn-default" type="submit">Update</button>
-            </div>
-          </form>
-          </div>
-        </section>
-        <div ng-repeat="beer in userCtrl.user.favoriteBeers">
-            {{beer.name}}
-        </div>
-        <button ng-click="userCtrl.showProfile=false">Main</button>
-      </div>
-
       <div id="container" class="col-sx-12">
         <nav>
         <section class="clsUsername col-xs-6">
+            <h6 ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true" id="userprofile">User Profile</h6>
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
+
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.showRegistration = !userCtrl.showRegistration">
@@ -157,9 +120,64 @@
         </section>
         </div>
     </div>
+        <!-- USER PROFILE ACCESS -->
+    <div id="userProfile" ng-if="userCtrl.showProfile==true">
 
+    <section class="clsRegister">
+        <div id="registration-container">
+          <form class="form-inline" ng-submit="userCtrl.update(userCtrl.user)">
+            <h3>Update User Profile</h3>
+            <div class="form-group">
+            <label for="userCtrl.user.username">Username</label><br/>
+            <input class="register-form-input" type="text" ng-model="userCtrl.user.username" placeholder="Username" required>
+          </div>
+            <div class="form-group">
+            <label for="userCtrl.user.password">Password</label><br/>
+            <input class="register-form-input" type="password" ng-model="userCtrl.user.newpassword" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="userCtrl.user.passwordConfirm">Confirm Password</label><br/>
+            <input class="register-form-input" type="password" ng-model="userCtrl.user.passwordConfirm" placeholder="Password" required>
+          </div>
+            <div class="form-group">
+              <label for="userCtrl.user.state">State</label><br/>
+            <input class="register-form-input" type="text" ng-model="userCtrl.user.state" placeholder="State"/>
+          </div>
+          <div class="form-group">
+            <label for="userCtrl.user.zipcode">Zip Code</label><br/>
+          <input class="register-form-input" type="text" ng-model="userCtrl.user.zipcode" placeholder="Zip Code"/>
+        </div><br/>
+            <div class="form-group">
+            <button class="register-form-button btn btn-default" type="submit">Update</button>
+            <button ng-click="userCtrl.deleteUser(userCtrl.user._id)" class="btn btn-danger">Delete User</button>
+          </div>
+        </form>
+        </div>
+        <button ng-click="userCtrl.showProfile=false">Return to Search</button>
+      </section>
+      <br/>
+      <hr>
+      <br/>
+      <div id="favlist">
+        <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
+            <ul >
+              <li class="favlistname">
+                <div class="favorite">
+                {{beer.name}}
+              <!-- </br> PUT FAV HEART HERE -->
+                <div class="profilestats">
+                  <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
+                  <strong>ABV:</strong> {{beer.abvMin}} - {{beer.abvMax}}</br>
+                  <strong>SRM:</strong> {{beer.srmMin}} - {{beer.srmMax}}</br>
+                </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
 
-    <div ng-if="userCtrl.showProfile===false"
+    <div ng-if="userCtrl.showProfile===false">
   <!-- SLIDERS -->
     <section class="sliders">
       <div>

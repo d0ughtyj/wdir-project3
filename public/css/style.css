@@ -56,6 +56,7 @@ nav {
 h6 {
   margin-left: 25px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 h6:hover {
@@ -100,7 +101,7 @@ button {
 }
 
 .sliders {
-  margin-top: 50px;
+  margin-top: 25px;
   margin-bottom: 50px;
   background-color: #36080B;
   border: 5px solid #36080B;
@@ -189,4 +190,32 @@ p {
 
 strong {
   font-family: 'Sancreek', cursive;
+}
+
+#userprofile {
+  text-align: left;
+}
+
+#favlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.favorite {
+  border: 5px solid #36080B;
+  height: 150px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.favlistname:hover {
+  color: #36080B;
+  cursor: default;
+}
+
+.profilestats {
+  margin-top: 25px;
 }
