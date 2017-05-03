@@ -250,6 +250,32 @@ $closeBtn.click(function() {
   //******************************************//
 
 
+  this.update = function(user) {
+    if(user.newpassword.length>=8){
+    if(user.newpassword === user.passwordConfirm){
+      user.password=user.newpassword;
+    $http({
+      url: '/users/' +user._id,
+      method: 'PUT',
+      data: user
+    }).then(function(response) {
+      if (response.data.status == 201) {
+        location.reload();
+      } else {
+        self.loginError = "Username already taken";
+        self.registerForm = {};
+      }
+    });
+  }else{
+    self.loginError = "Passwords Do Not Match";
+    self.registerForm = {};
+  }}else{
+    self.loginError = "Password Must be at Least 8 characters";
+    self.registerForm = {};
+  }
+  };
+
+
   this.deleteUser = function(id){
     self.logout();
     $http({

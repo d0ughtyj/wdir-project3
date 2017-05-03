@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
+
 
 var User = require('../models/user');
 var Beers = require('../models/beers');
@@ -70,6 +72,13 @@ router.post('/:id', function(req, res) {
 				});
 			});
 		});
+});
+
+router.put('/:id', function(req, res){
+	req.body.password=bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+  User.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, updatedUser){
+    res.json({status: 201});
+  });
 });
 
 router.delete('/:id', function(req, res){
