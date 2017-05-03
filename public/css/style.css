@@ -21,11 +21,26 @@ header {
 }
 
 i {
-  margin-right: 25px;
+  margin-right: 20px;
   -webkit-transform: rotate(25deg);
   -moz-transform: rotate(25deg);
   -o-transform: rotate(25deg);
   color: #FEF7E9;
+}
+
+#question {
+  z-index: 1;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #36080B;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#question:hover {
+  color: #B54B02;
+  cursor: pointer;
 }
 
 nav {
