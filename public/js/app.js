@@ -311,6 +311,7 @@ $closeBtn.click(function() {
   };
 
   this.addFavorite =function(beer){
+    console.log(this);
     console.log("FAVORITE");
     $http({
       url: '/users/addFav/'+beer._id,
