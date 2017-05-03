@@ -1,4 +1,7 @@
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Rye');
+@import url('https://fonts.googleapis.com/css?family=Sancreek');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 
 body {
   background-color: #FEF7E9;
@@ -9,7 +12,7 @@ header {
   background-color: #36080B;
   color: #FEF7E9;
   padding: 10px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Rye', cursive;
   display: flex;
   justify-content: space-between;
 }
@@ -35,7 +38,7 @@ i {
   top: 15px;
   color: #36080B;
   font-size: 30px;
-  font-weight: bold;
+  font-family: 'Rye', cursive;
 }
 
 #question:hover {
@@ -82,6 +85,10 @@ ul {
 
 li {
   list-style: none;
+  cursor: pointer;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 18px;
+  line-height: 100%;
 }
 
 li:hover {
@@ -104,19 +111,21 @@ button {
 h5 {
   color: #FEF7E9;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 #listandshow {
   display: flex;
+  justify-content: space-between;
 }
 
-#left {
+/*#left {
   width: 55%;
-}
+}*/
 
 #right {
-  width: 35%;
+  width: 50%;
 }
 
 #favorite:hover {
@@ -125,7 +134,7 @@ h5 {
 
 .beername {
   font-size: 25px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Sancreek', cursive;
 }
 
 #modal {
@@ -135,7 +144,7 @@ h5 {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 2;
+  z-index: 99;
   display: none;
 }
 
@@ -149,6 +158,14 @@ h5 {
   padding: 20px;
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
   color: #36080B;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 20px;
+}
+
+p {
+  line-height: 100%;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 16px;
 }
 
 #modal-footer {
@@ -159,8 +176,14 @@ h5 {
   background-color: #36080B;
   color: #FEF7E9;
   cursor: pointer;
+  font-family: 'Sancreek', cursive;
 }
 
 #modal-header {
   text-align: center;
+  font-family: 'Sancreek', cursive;
+}
+
+strong {
+  font-family: 'Sancreek', cursive;
 }
