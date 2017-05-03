@@ -21,11 +21,26 @@ header {
 }
 
 i {
-  margin-right: 25px;
+  margin-right: 20px;
   -webkit-transform: rotate(25deg);
   -moz-transform: rotate(25deg);
   -o-transform: rotate(25deg);
   color: #FEF7E9;
+}
+
+#question {
+  z-index: 1;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #36080B;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#question:hover {
+  color: #B54B02;
+  cursor: pointer;
 }
 
 nav {
@@ -42,6 +57,10 @@ h6 {
 
 h6:hover {
   color: #B54B02;
+}
+
+h3 {
+  margin: 0;
 }
 
 .glyphicon {
@@ -67,4 +86,44 @@ li {
 
 li:hover {
   color: #B54B02;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.sliders {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #36080B;
+  border: 5px solid #36080B;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h5 {
+  color: #FEF7E9;
+  text-align: center;
+  font-size: 25px;
+}
+
+#listandshow {
+  display: flex;
+}
+
+#left {
+  width: 55%;
+}
+
+#right {
+  width: 35%;
+}
+
+#favorite:hover {
+  color: red;
+}
+
+.beername {
+  font-size: 25px;
+  font-family: 'Fredericka the Great', cursive;
 }

@@ -3,40 +3,41 @@
 }
 
 #user-message {
-	color:black;
+	color: #B54B02;
 	font-size: 16px;
 	height:34px;
 }
 
 .clsRegisterError{
-	background: lightyellow;
+	color: #B54B02;
 	padding-left: 20px;
 }
 
 .clsRegister{
-background: #c2ccfc;
+background: #FEF7E9;
 padding-left: 20px;
 padding-top: 20px;
+padding-bottom: 0;
 }
 
 .clsLogin{
-background: lightgrey;
+background: #FEF7E9;
 border-radius: 2px;
 font-size: 16px;
 padding-top: 0px;
 padding-left: 20px;
-padding-bottom: 0px;
+/*padding-bottom: 50px;*/
 }
 .clsLoginLogout{
-background: grey;
-border-radius: 2px;
+background: #FEF7E9;
+/*border-radius: 2px;*/
 font-size: 16px;
 padding-left: 20px;
 height:34px;
 }
 .clsUsername {
- background: lightgrey;
- border-radius: 2px;
+ background: #FEF7E9;
+ /*border-radius: 2px;*/
  font-size: 16px;
  padding-left: 20px;
  height: 34px;
