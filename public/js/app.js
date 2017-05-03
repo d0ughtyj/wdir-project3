@@ -136,7 +136,26 @@ this.searchBeers = function(){
   };
   this.getBeers();
   this.refreshSlider();
-}]);
+
+//-------------MODAL-------------//
+
+var $openBtn = $('#question')
+var $modal = $('#modal');
+var $closeBtn = $('#closeBtn')
+$openBtn.click(function() {
+  $scope.$apply(function() {
+    console.log('open clicked');
+    $modal.css('display', 'block');
+  })
+})
+$closeBtn.click(function() {
+  $scope.$apply(function(){
+    console.log('close clicked');
+    $modal.css('display', 'none')
+  })
+})
+
+}]);//main controller close
 
 
   app.controller('userController', ['$http', '$timeout', function($http, $timeout) {

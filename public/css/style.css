@@ -127,3 +127,40 @@ h5 {
   font-size: 25px;
   font-family: 'Fredericka the Great', cursive;
 }
+
+#modal {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+}
+
+#modal-text-area {
+  background-color: #FEF7E9;
+  height: 400px;
+  width: 600px;
+  border: 5px solid #36080B;
+  margin: 150px auto;
+  overflow: auto;
+  padding: 20px;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
+  color: #36080B;
+}
+
+#modal-footer {
+  text-align: right;
+}
+
+#closeBtn {
+  background-color: #36080B;
+  color: #FEF7E9;
+  cursor: pointer;
+}
+
+#modal-header {
+  text-align: center;
+}
