@@ -62,11 +62,28 @@ router.post('/logout', function(req, res) {
 	});
 });
 
-router.post('/:id', function(req, res) {
+router.post('/addFav/:id', function(req, res) {
 	console.log(req.session.loggedInUser);
 	User.findById(req.session.loggedInUser.id, function(err, foundUser){
 			Beers.findById(req.params.id, function(err, foundBeer){
 				foundUser.favoriteBeers.push(foundBeer);
+				foundUser.save(function(err, savedUser){
+					res.json({ status: 200 });
+				});
+			});
+		});
+});
+
+router.post('/removeFav/:id', function(req, res) {
+	console.log(req.session.loggedInUser);
+	User.findById(req.session.loggedInUser.id, function(err, foundUser){
+			Beers.findById(req.params.id, function(err, foundBeer){
+				for(var x=0; x<foundUser.favoriteBeers.length; x++){
+					if(foundUser.favoriteBeers[x].id === foundBeer.id){
+						console.log('removing beer');
+						foundUser.favoriteBeers.splice(x,1);
+					}
+				}
 				foundUser.save(function(err, savedUser){
 					res.json({ status: 200 });
 				});

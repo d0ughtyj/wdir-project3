@@ -50,10 +50,9 @@
 <!-- BODY OF SITE -->
 <main ng-controller="userController as userCtrl" class="container">
     <!-- LOGIN AND REGISTRATION -->
-    <div>
-      <button ng-if="userCtrl.loggedIn" ng-click="userCtrl.deleteUser(userCtrl.user._id)">Delete User</button>
-
-
+  <button ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true">User Profile</Button>
+      <div id="userProfile" ng-if="userCtrl.showProfile==true">
+        <button ng-click="userCtrl.deleteUser(userCtrl.user._id)">Delete User</button>
       <section class="clsRegister">
           <div id="registration-container">
             <form class="form-inline" ng-submit="userCtrl.update(userCtrl.user)">
@@ -81,13 +80,14 @@
               <div class="form-group">
               <button class="register-form-button btn btn-default" type="submit">Update</button>
             </div>
+          </form>
           </div>
-            </form>
         </section>
-
-
-
-
+        <div ng-repeat="beer in userCtrl.user.favoriteBeers">
+            {{beer.name}}
+        </div>
+        <button ng-click="userCtrl.showProfile=false">Main</button>
+      </div>
 
       <div id="container" class="col-sx-12">
         <nav>
@@ -157,6 +157,9 @@
         </section>
         </div>
     </div>
+
+
+    <div ng-if="userCtrl.showProfile===false"
   <!-- SLIDERS -->
     <section class="sliders">
       <div>
@@ -189,7 +192,7 @@
       <!-- LIST OF STYLES -->
       <div id="left">
         <ul>
-          <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
+          <li ng-click="main.getBeer(userCtrl.user, beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
               {{beers.name}}
               <!-- {{beers.ibuMin}} {{beers.ibuMax}}
               {{beers.abvMin}} {{beers.abvMax}}
@@ -202,7 +205,8 @@
         <!-- <div ng-controller="userController as userCtrl"> -->
         <div ng-if="main.selectedBeer!==undefined">
         <h1 class="beername">{{main.selectedBeer.name}}</h1>
-        <button ng-if="userCtrl.loggedIn" ng-click=userCtrl.addFavorite(main.selectedBeer) id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+        <button ng-if="userCtrl.loggedIn && !main.favorite" ng-click="userCtrl.addFavorite(main.selectedBeer); main.makeTrue()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+        <button ng-if="userCtrl.loggedIn && main.favorite" ng-click="userCtrl.removeFavorite(main.selectedBeer); main.makeFalse()" id="favorite" class="fa fa-beer" aria-hidden="true"></button>
         <p>{{main.selectedBeer.description}}</p></br>
         <strong>IBU:</strong> {{main.selectedBeer.ibuMin}} - {{main.selectedBeer.ibuMax}}</br>
         <strong>ABV:</strong> {{main.selectedBeer.abvMin}} - {{main.selectedBeer.abvMax}}</br>
@@ -211,6 +215,7 @@
         <!-- </div> -->
       </div>
     </section>
+  </div>
 
 </main>
 
