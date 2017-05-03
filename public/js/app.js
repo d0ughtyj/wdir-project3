@@ -230,6 +230,19 @@ this.searchBeers = function(){
   	};
   //******************************************//
 
+
+  this.deleteUser = function(id){
+    self.logout();
+    $http({
+      method: 'DELETE',
+      url: '/users/'+id,
+    }).then(function(response){
+      console.log("deleted", response);
+    }, function(response){
+      console.log("failed", response);
+    });
+  };
+
   this.addFavorite =function(beer){
     $http({
       url: '/users/'+beer._id,

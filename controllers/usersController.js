@@ -72,4 +72,10 @@ router.post('/:id', function(req, res) {
 		});
 });
 
+router.delete('/:id', function(req, res){
+  User.findByIdAndRemove(req.params.id, function(err, deletedUser){
+    res.json(deletedUser);
+  });
+});
+
 module.exports = router;
