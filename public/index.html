@@ -130,9 +130,9 @@
     <ul>
       <li ng-click="main.getBeer(beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
           {{beers.name}}
-          {{beers.ibuMin}} {{beers.ibuMax}}
+          <!-- {{beers.ibuMin}} {{beers.ibuMax}}
           {{beers.abvMin}} {{beers.abvMax}}
-          {{beers.srmMin}} {{beers.srmMax}}
+          {{beers.srmMin}} {{beers.srmMax}} -->
       </li>
     </ul>
     <!-- SHOW PAGE FOR STYLE -->
