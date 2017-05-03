@@ -1,12 +1,19 @@
 var app = angular.module('BeersApp', ['rzModule']);
 
-app.controller("MainController", ['$scope', '$http', function($scope, $http){
+
+app.controller("MainController", ['$scope', '$timeout', '$http', function($scope, $timeout, $http){
   var controller = this;
   this.swapper = 0;
 
 this.getBeer = function(beer){
   this.selectedBeer=beer;
   console.log(this.selectedBeer);
+};
+
+this.refreshSlider = function () {
+  $timeout(function () {
+    $scope.$broadcast('rzSliderForceRender');
+  });
 };
 
   $scope.ibuSlider = {
@@ -33,7 +40,7 @@ this.getBeer = function(beer){
     options: {
       floor: 1,
       ceil: 40,
-      pushRange: true
+      // pushRange: true
     }
   };
 
@@ -128,6 +135,7 @@ this.searchBeers = function(){
     });
   };
   this.getBeers();
+  this.refreshSlider();
 }]);
 
 
@@ -166,37 +174,36 @@ this.searchBeers = function(){
 
   //*************************************************//
   // jimd we need this function for user auth
-  		this.getUser(function() {
-  				if (self.loggedIn && self.user) {
-  							console.log('Form data: ', self.newPlayerForm);
-  							$http({
-  								method: 'POST',
-  								url: '/players',
-  								data: self.newPlayerForm
-  							}).then(function(result) {
-  								if (result.data.errors) {
-  									console.log('Error: ', result);
-  									self.newPlayerError = "Please enter all the info";
-  								} else {
-  									console.log('Created Player (201): ', result.data);
-  									console.log("THIS IS THIS: ", this);
-  									self.newPlayerForm = {};
-  									console.log('old players list: ', self.playersList);
-  									self.playersList.push(result.data);
-  								}
-  							}, function(serverError) {
-  								console.log(serverError);
-  							});
-  				} else {
-  					self.newPlayerError = "Log in to add a player";
-  				} // end user check
-  		}); // end getUser
+  		// this.getUser(function() {
+  		// 		if (self.loggedIn && self.user) {
+  		// 					console.log('Form data: ', self.newPlayerForm);
+  		// 					$http({
+  		// 						method: 'POST',
+  		// 						url: '/players',
+  		// 						data: self.newPlayerForm
+  		// 					}).then(function(result) {
+  		// 						if (result.data.errors) {
+  		// 							console.log('Error: ', result);
+  		// 							self.newPlayerError = "Please enter all the info";
+  		// 						} else {
+  		// 							console.log('Created Player (201): ', result.data);
+  		// 							console.log("THIS IS THIS: ", this);
+  		// 							self.newPlayerForm = {};
+  		// 							console.log('old players list: ', self.playersList);
+  		// 							self.playersList.push(result.data);
+  		// 						}
+  		// 					}, function(serverError) {
+  		// 						console.log(serverError);
+  		// 					});
+  		// 		} else {
+  		// 			self.newPlayerError = "Log in to add a player";
+  		// 		} // end user check
+  		// }); // end getUser
   	//} // end process new player
 
 
   	//*************************************************//
   	this.resetState = function() {
-  		// this.showSingleGame = false;
   		document.body.scrollTop = 0;
   	};
 
@@ -207,7 +214,8 @@ this.searchBeers = function(){
 
   //******************************************//
   	this.register = function(userPass) {
-  		console.log(this.registerForm);
+      if(this.registerForm.password.length>=8){
+      if(this.registerForm.password === this.registerForm.passwordConfirm){
   		$http({
   			url: '/users',
   			method: 'POST',
@@ -220,6 +228,13 @@ this.searchBeers = function(){
   				self.registerForm = {};
   			}
   		});
+    }else{
+      self.loginError = "Passwords Do Not Match";
+      self.registerForm = {};
+    }}else{
+      self.loginError = "Password Must be at Least 8 characters";
+      self.registerForm = {};
+    }
   	};
 
   	//******************************************//

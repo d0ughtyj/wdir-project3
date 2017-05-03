@@ -33,6 +33,7 @@ router.post('/', function(req, res) {
 			res.json({ status: 201, user: user });
 		}
 	});
+
 });
 
 
