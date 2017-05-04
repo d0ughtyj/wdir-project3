@@ -23,6 +23,7 @@ header {
   margin: 0;
   padding: 5px;
   font-size: 45px;
+  cursor: default;
 }
 
 i {
@@ -287,4 +288,12 @@ iframe {
 
 #iframetag {
   text-align: center;
+}
+
+#todpia {
+  cursor: default;
+}
+
+#todpia:hover {
+  color: #FEF7E9;
 }
