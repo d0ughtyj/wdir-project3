@@ -10,7 +10,8 @@ var userSchema = mongoose.Schema({
 	admin: { type: Boolean, default: false },
 	favorite: { type: String, default: "" },
 	password: { type: String, required: true },
-	favoriteBeers: []
+	favoriteBeers: [],
+	totalBeers: { type: Number, default: 0 }
 
 });
 

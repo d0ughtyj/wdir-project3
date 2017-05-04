@@ -8,6 +8,8 @@ router.get('/', function(req, res){
   });
 });
 
+
+
 router.get('/search/:min/:max', function(req, res){
   console.log(req.params.min);
   console.log(req.params.max);
