@@ -15,7 +15,9 @@ header {
   font-family: 'Rye', cursive;
   display: flex;
   justify-content: space-between;
+  height: 90px;
 }
+
 
 #title {
   margin: 0;
@@ -44,6 +46,10 @@ i {
 #question:hover {
   color: #B54B02;
   cursor: pointer;
+}
+
+#srmSlider{
+  border-radius: 10px;
 }
 
 nav {
@@ -101,8 +107,8 @@ button {
 }
 
 .sliders {
-  margin-top: 25px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #36080B;
   border: 5px solid #36080B;
   padding: 20px;
@@ -141,7 +147,7 @@ h5 {
   font-family: 'Sancreek', cursive;
 }
 
-#modal {
+#modal{
   background-color: rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
@@ -152,14 +158,40 @@ h5 {
   display: none;
 }
 
+#modalDelete{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  display: none;
+}
+
+#modal-delete-text-area {
+  background-color: #FEF7E9;
+  height: 150px;
+  width: 300px;
+  border: 5px solid #36080B;
+  margin: 150px auto;
+  overflow: auto;
+  padding: 0px 20px 5px 20px;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
+  color: #36080B;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
 #modal-text-area {
   background-color: #FEF7E9;
-  height: 400px;
+  height: 625px;
   width: 600px;
   border: 5px solid #36080B;
   margin: 150px auto;
   overflow: auto;
-  padding: 20px;
+  padding: 0px 20px 5px 20px;
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
   color: #36080B;
   font-family: 'PT Sans Narrow', sans-serif;
@@ -177,10 +209,11 @@ p {
 }
 
 #closeBtn {
-  background-color: #36080B;
-  color: #FEF7E9;
+  color: #36080B;
   cursor: pointer;
   font-family: 'Sancreek', cursive;
+  float: right;
+
 }
 
 #modal-header {
@@ -204,7 +237,7 @@ strong {
 
 .favorite {
   border: 5px solid #36080B;
-  height: 150px;
+  height: 170px;
   width: 300px;
   padding: 20px;
   text-align: center;

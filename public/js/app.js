@@ -5,6 +5,22 @@ app.controller("MainController", ['$scope', '$timeout', '$http', function($scope
   var controller = this;
   this.swapper = 0;
   this.showMap = false;
+  this.numBeers=99;
+  this.todpia=false;
+
+  this.decBeers = function(){
+    this.todpia=true;
+    var that=this;
+    $timeout(function(){that.todpia=false;
+    console.log("dec!");
+    if(that.numBeers===0){
+      this.numBeers=99;
+    }else{
+      that.numBeers--;
+    }
+    },2000);
+
+  };
 
 //**************************************************//
 // show main map
@@ -186,6 +202,26 @@ $closeBtn.click(function() {
   });
 });
 
+this.getDeleteModal = function(){
+  console.log('getting this');
+var $openD = $('#openD');
+var $modalDelete = $('#modalDelete');
+var $closeDelete = $('#closeDelete');
+$openD.click(function() {
+  $scope.$apply(function() {
+    console.log('open clicked');
+    $modalDelete.css('display', 'block');
+  });
+});
+$closeDelete.click(function() {
+  $scope.$apply(function(){
+    console.log('close clicked');
+    $modalDelete.css('display', 'none');
+  });
+});
+};
+
+
 }]);//main controller close
 
 
@@ -262,7 +298,7 @@ $closeBtn.click(function() {
   				console.log('Logged in user: ', response.data);
   				self.user = response.data.user;
   				self.loggedIn = true;
-  				self.showRegistration = false;
+  				self.showLogin = false;
   				self.loginError =null;
   			}
   		});
