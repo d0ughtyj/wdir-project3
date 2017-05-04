@@ -191,16 +191,25 @@ this.searchBeers = function(){
 var $openBtn = $('#question');
 var $modal = $('#modal');
 var $closeBtn = $('#closeBtn');
+var $pourMug = $('#pourmug');
 $openBtn.click(function() {
   $scope.$apply(function() {
     console.log('open clicked');
     $modal.css('display', 'block');
+    $pourMug.css('transform', 'rotate(75deg)');
+    $pourMug.css('-webkit-transform', 'rotate(75deg)');
+    $pourMug.css('-moz-transform', 'rotate(75deg)');
+    $pourMug.css('-o-transform', 'rotate(75deg)');
   });
 });
 $closeBtn.click(function() {
   $scope.$apply(function(){
     console.log('close clicked');
     $modal.css('display', 'none');
+    $pourMug.css('transform', 'rotate(25deg)');
+    $pourMug.css('-webkit-transform', 'rotate(25deg)');
+    $pourMug.css('-moz-transform', 'rotate(25deg)');
+    $pourMug.css('-o-transform', 'rotate(25deg)');
   });
 });
 
