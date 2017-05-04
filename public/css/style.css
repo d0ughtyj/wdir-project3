@@ -35,7 +35,7 @@ header {
   cursor: default;
 }
 
-i {
+#pourmug {
   margin-right: 20px;
   -webkit-transform: rotate(25deg);
   -moz-transform: rotate(25deg);
@@ -345,4 +345,36 @@ img {
   left: 95px;
   top: -10px;
   position: relative;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 836px) {
+  header {
+    height: 125px;
+  }
+}
+
+@media (max-width: 505px) {
+  header {
+    height: 165px;
+  }
+}
+
+@media (max-width: 400px) {
+  #title {
+    font-size: 25px;
+  }
+  header {
+    height: 90px;
+  }
+}
+
+@media (max-width: 333px) {
+  #title {
+    font-size: 16px;
+  }
+  header {
+    height: 90px;
+  }
 }
