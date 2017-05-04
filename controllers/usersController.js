@@ -67,6 +67,9 @@ router.post('/addFav/:id', function(req, res) {
 	User.findById(req.session.loggedInUser.id, function(err, foundUser){
 			Beers.findById(req.params.id, function(err, foundBeer){
 				foundUser.favoriteBeers.push(foundBeer);
+				console.log("TOTALBEERS");
+				console.log(foundUser);
+				foundUser.totalBeers++;
 				foundUser.save(function(err, savedUser){
 					res.json({ status: 200 });
 				});
@@ -81,6 +84,8 @@ router.post('/removeFav/:id', function(req, res) {
 				for(var x=0; x<foundUser.favoriteBeers.length; x++){
 					if(foundUser.favoriteBeers[x].id === foundBeer.id){
 						console.log('removing beer');
+						console.log(foundUser.totalBeers);
+						foundUser.totalBeers--;
 						foundUser.favoriteBeers.splice(x,1);
 					}
 				}
