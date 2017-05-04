@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<script src="ng-map.min.js"></script>
+<script src="map_app.js"></script>
+</head>
+
+<body>
+  <div>
+    <ng-map zoom="11" center="40, -90">
+      <fusion-tables-layer query="{
+        select: 'breweries',
+        from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu'}">
+      </fusion-tables-layer>
+    </ng-map>
+  </div>
+</body>
+</html>

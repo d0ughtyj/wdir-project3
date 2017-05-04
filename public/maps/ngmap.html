@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U76XKfnUdY"
+  type="text/javascript"></script>
+<script src="ng-map.min.js"></script>
+<script src="map_app.js"></script>
+<style>     ng-map {      height:400px;   width:800px; }</style>
+<title>Sample Map Display</title>
+</head>
+
+<body>
+  <nav><!-- $broadcast('init-map2'); -->
+    <h2>Sample Map Display</h2>
+  <button ng-click="myMap.showMap1=true; myMap.showMap2=false; myMap.showMap3=false; myMap.showMap4=false">Simple</button>
+  <button ng-click="myMap.showMap1=false; myMap.showMap2=true; myMap.showMap3=false; myMap.showMap4=false">Heat</button>
+  <button ng-click="myMap.showMap1=false; myMap.showMap2=false; myMap.showMap3=true; myMap.showMap4=false">Ratings</button>
+  <button ng-click="myMap.showMap1=false; myMap.showMap2=false; myMap.showMap3=false; myMap.showMap4=true">Zip</button>
+    </nav>
+
+  <section ng-controller='MapController as myMap'>
+  User: {{myMap.mapUser}} | Zip: {{myMap.mapZip}} | State: {{myMap.mapState}} | <br>
+  Address: {{myMap.mapAddress}} | Fav: {{myMap.mapFav}} | Rating: {{myMap.mapRating}}
+</section>
+
+<!-- ############################################################### -->
+  <div ng-show="myMap.showMap1" >
+    <ng-map zoom="3" center="40, -90">
+      <fusion-tables-layer query="{
+        select: 'breweries',
+        from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu'}">
+      </fusion-tables-layer>
+      <span ng-if="myMap.render"></span>
+      <script>console.log('map 1');</script>
+    </ng-map>
+  </div >
+<!-- ############################################################### -->
+  <div ng-show="myMap.showMap2">
+    <ng-map zoom="3" center="40, -90">
+      <fusion-tables-layer
+        query= "{ select: 'breweries',
+          from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu'}",
+          heatmap = '{enabled: true}'>
+      </fusion-tables-layer>
+      <script>console.log('map 2');</script>
+    </ng-map>
+  </div>
+  <!-- ############################################################### -->
+  <!-- http://stackoverflow.com/questions/39813461/pass-an-object-as-part-of-ng-map-marker -->
+  <div ng-show="myMap.showMap3">
+    <ng-map zoom="3" center="40, -90">
+      <fusion-tables-layer query="{
+        select: 'breweries',
+        from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu',
+        where: 'overall > {{myMap.mapRating}}'
+        }">
+      </fusion-tables-layer>
+      <script>console.log('map 3');</script>
+    </ng-map>
+  </div>
+<!-- ############################################################### -->
+<div ng-show="myMap.showMap4">
+  <ng-map zoom="3" center="40, -90">
+    <fusion-tables-layer query="{
+      select: 'breweries',
+      from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu',
+      where: "zip 80903"
+      }">
+    </fusion-tables-layer>
+    <script>console.log('map 4');</script>
+  </ng-map>
+</div>
+
+<!-- ############################################################### -->
+
+<!--- "zip \x3e\x3d 80900 and zip \x3c\x3d 80925" -->
+
+<!-- </section> -->
+</body>
+
+</html>

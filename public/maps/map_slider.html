@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ngMap">
+<html ng-app="myApp">
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <script
@@ -7,33 +7,45 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U76XKfnUdY"
   type="text/javascript"></script>
-  
+
 <script src="ng-map.min.js"></script>
 <script src="map_app.js"></script>
-
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <style>
     ng-map {
       height:400px;
+      margin: 20px;
     }
 </style>
 </head>
 
 <body>
-  <div id="map-canvas">
-    <h3>Simple ng-map</h3>
-    <ng-map zoom="3" center="40, -90">
+<!-- <section ng-controller='MapController as myMap'>
+  User: {{myMap.mapUser}} | Zip: {{myMap.mapZip}} | State: {{myMap.mapState}} | <br>
+  Address: {{myMap.mapAddress}} | Fav: {{myMap.mapFav}} | Rating: {{myMap.mapRating}}
+</section> -->
+  <hr>
+  <div id="map-canvas" ng-controller='MapController as myMap'>
+    <ng-map zoom="3" center="40,-90">
+      <h3>Rating Value: {{value}}</h3>  <button ng-click="myMap.displayRating()">Update Map</button>
+      <!-- ng-if="!myMap.render(); -->
+      <input type="range"  min="50" max="100" ng-model="value"  >
       <fusion-tables-layer query="{
         select: 'breweries',
-        from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu'}">
+        from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu',
+        where: 'overall > {{value}}'
+        }">
       </fusion-tables-layer>
+      <!-- <h4>Rating: {{myMap.mapRating}}</h4> -->
+
+
     </ng-map>
   </div>
-</body>
 
+</body>
 </html>
