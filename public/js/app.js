@@ -202,6 +202,26 @@ $closeBtn.click(function() {
   });
 });
 
+this.getDeleteModal = function(){
+  console.log('getting this');
+var $openD = $('#openD');
+var $modalDelete = $('#modalDelete');
+var $closeDelete = $('#closeDelete');
+$openD.click(function() {
+  $scope.$apply(function() {
+    console.log('open clicked');
+    $modalDelete.css('display', 'block');
+  });
+});
+$closeDelete.click(function() {
+  $scope.$apply(function(){
+    console.log('close clicked');
+    $modalDelete.css('display', 'none');
+  });
+});
+};
+
+
 }]);//main controller close
 
 

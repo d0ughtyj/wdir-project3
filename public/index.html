@@ -69,7 +69,7 @@
 
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
-              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false">
+              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false; userCtrl.loginError=false">
                 <h6 style="display:inline"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
               </span><span ng-if="!userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false">
@@ -112,7 +112,7 @@
               </form>
           </section>
       <section class="clsRegisterError">
-          <h2 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h2>
+          <h4 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h4>
       </section>
       <section class="clsLogin">
               <form ng-if="userCtrl.showLogin" class="form-inline" ng-submit="userCtrl.login()">
@@ -161,9 +161,18 @@
         </div><br/>
             <div class="form-group">
             <button class="register-form-button btn btn-default" type="submit">Update</button>
-            <button ng-click="userCtrl.deleteUser(userCtrl.user._id)" class="btn btn-danger">Delete User</button>
           </div>
+          <button id="openD" class="btn btn-danger">Delete User</button>
+
         </form>
+        <div id="modalDelete">
+          <div id="modal-delete-text-area">
+            Are you sure you want to delete your account?</br>
+            <button ng-click="userCtrl.deleteUser(userCtrl.user._id)" class="btn btn-danger">Yes</button>
+            <button id="closeDelete" class="btn btn-success">No</button>
+          </div>
+          <p ng-if="main.getDeleteModal()"></p>
+        </div>
         </div>
       </section>
       <br/>
