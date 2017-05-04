@@ -356,10 +356,17 @@ $closeBtn.click(function() {
     });
   };
 
+}]);
 
+// ******************************************************//
+app.controller('mapController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
-
-
-
+      var self = this;
+      this.mapUser = 'johnd';
+      this.mapZip = '80803';
+      this.mapState = 'CO';
+      this.mapAddress = '120 South Tejon, Colorado Springs, CO';
+      this.mapFav ='IPA';
 
 }]);
+// ******************************************************//
