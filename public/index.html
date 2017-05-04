@@ -64,8 +64,8 @@
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Profile</h6>
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Return to Search</h6>
             <!-- MAP SHOW AND HIDE BUTTONS -->
-            <h6 id="mapbtn" ng-click="main.showMap=true; main.showSearch = false" ng-show="!main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>View Brewery Map</h6>
-            <h6 id="mapbtn" ng-click="main.showMap=false; main.showSearch = true" ng-show="main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>Hide Brewery Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=true; main.showSearch = false" ng-show="!main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>View Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=false; main.showSearch = true" ng-show="main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-search"></span>View Search</h6>
             <!-- MAP SHOW AND HIDE BUTTONS END -->
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
@@ -85,29 +85,30 @@
               </span>
         </section>
         </nav>
+        <!-- END NAV -->
         <section class="clsRegister">
             <div ng-if="userCtrl.showRegistration" id="registration-container">
               <form class="form-inline" ng-submit="userCtrl.register()">
                 <h3>Register</h3>
                 <div class="form-group">
                 <label for="userCtrl.registerForm.username">Username</label><br/>
-                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.username" placeholder="Username" required>
+                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.username" placeholder="required" required>
               </div>
                 <div class="form-group">
                 <label for="userCtrl.registerForm.password">Password</label><br/>
-                <input class="register-form-input" type="password" ng-model="userCtrl.registerForm.password" placeholder="Password" required>
+                <input class="register-form-input" type="password" ng-model="userCtrl.registerForm.password" placeholder="required" required>
               </div>
               <div class="form-group">
                 <label for="userCtrl.registerForm.passwordConfirm">Confirm Password</label><br/>
-                <input class="register-form-input" type="password" ng-model="userCtrl.registerForm.passwordConfirm" placeholder="Password" required>
+                <input class="register-form-input" type="password" ng-model="userCtrl.registerForm.passwordConfirm" placeholder="required" required>
               </div>
                 <div class="form-group">
                   <label for="userCtrl.registerForm.state">State</label><br/>
-                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.state" placeholder="State"/>
+                <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.state" placeholder="optional"/>
               </div>
               <div class="form-group">
                 <label for="userCtrl.registerForm.zipcode">Zip Code</label><br/>
-              <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.zipcode" placeholder="Zip Code"/>
+              <input class="register-form-input" type="text" ng-model="userCtrl.registerForm.zipcode" placeholder="optional"/>
             </div><br/>
                 <div class="form-group">
                 <button class="register-form-button btn btn-default" type="submit">Register</button>
@@ -123,11 +124,11 @@
                 <br><h3>Log In</h3>
                 <div class="form-group">
                   <label for="userCtrl.loginForm.username">Username</label><br/>
-                <input class="register-form-input" type="text" ng-model="userCtrl.loginForm.username" placeholder="Username" required/>
+                <input class="register-form-input" type="text" ng-model="userCtrl.loginForm.username" placeholder="required" required/>
               </div>
                 <div class="form-group">
                   <label for="userCtrl.loginForm.password">Password</label><br/>
-                <input class="register-form-input" type="password" ng-model="userCtrl.loginForm.password" placeholder="Password" required/>
+                <input class="register-form-input" type="password" ng-model="userCtrl.loginForm.password" placeholder="required" required/>
               </div><br/>
                 <div class="form-group">
                 <button class="register-form-button btn btn-default" type="submit">Log In</button>
@@ -144,23 +145,23 @@
             <h3>Update User Profile</h3>
             <div class="form-group">
             <label for="userCtrl.user.username">Username</label><br/>
-            <input class="register-form-input" type="text" ng-model="userCtrl.user.username" placeholder="Username" required>
+            <input class="register-form-input" type="text" ng-model="userCtrl.user.username" placeholder="required" required>
           </div>
             <div class="form-group">
             <label for="userCtrl.user.password">Password</label><br/>
-            <input class="register-form-input" type="password" ng-model="userCtrl.user.newpassword" placeholder="Password" required>
+            <input class="register-form-input" type="password" ng-model="userCtrl.user.newpassword" placeholder="required" required>
           </div>
           <div class="form-group">
             <label for="userCtrl.user.passwordConfirm">Confirm Password</label><br/>
-            <input class="register-form-input" type="password" ng-model="userCtrl.user.passwordConfirm" placeholder="Password" required>
+            <input class="register-form-input" type="password" ng-model="userCtrl.user.passwordConfirm" placeholder="required" required>
           </div>
             <div class="form-group">
               <label for="userCtrl.user.state">State</label><br/>
-            <input class="register-form-input" type="text" ng-model="userCtrl.user.state" placeholder="State"/>
+            <input class="register-form-input" type="text" ng-model="userCtrl.user.state" placeholder="optional"/>
           </div>
           <div class="form-group">
             <label for="userCtrl.user.zipcode">Zip Code</label><br/>
-          <input class="register-form-input" type="text" ng-model="userCtrl.user.zipcode" placeholder="Zip Code"/>
+          <input class="register-form-input" type="text" ng-model="userCtrl.user.zipcode" placeholder="optional"/>
         </div><br/>
             <div class="form-group">
             <button class="register-form-button btn btn-default" type="submit">Update User</button>
@@ -180,25 +181,30 @@
         </div>
       </section>
       <br/>
-      <h3 class="h3header">{{userCtrl.user.totalBeers}} Beers On The Wall</h3>
-      <br/>
-      <div id="favlist">
-        <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
-            <ul >
-              <li class="favlistname">
-                <div class="favorite">
-                {{beer.name}}<br/>
-                <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
-                <div class="profilestats">
-                  <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
-                  <strong>ABV:</strong> {{beer.abvMin}} - {{beer.abvMax}}</br>
-                  <strong>SRM:</strong> {{beer.srmMin}} - {{beer.srmMax}}</br>
-                </div>
-                </div>
-              </li>
-            </ul>
-        </div>
+  <section id="thewall">
+    <h3 class="walltext" class="h3header">{{userCtrl.user.totalBeers}} Beers On The Wall</h3>
+    <br/>
+    <div id="favlist">
+      <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
+          <ul >
+            <li class="favlistname">
+              <div class="favorite">
+                <img src="/images/pushpin.png"><br/>
+              {{beer.name}}<br/>
+              <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+              <div class="profilestats">
+                <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
+                <strong>ABV:</strong> {{beer.abvMin}} - {{beer.abvMax}}</br>
+                <strong>SRM:</strong> {{beer.srmMin}} - {{beer.srmMax}}</br>
+              </div>
+              </div>
+            </li>
+          </ul>
       </div>
+    </div>
+
+  </section>
+    <br/>
     </div>
     <div ng-if="!userCtrl.showProfile && main.showSearch">
   <!-- SLIDERS -->
@@ -262,6 +268,7 @@
   <section id="iframetag" ng-if="main.showMap && !main.showSearch && !userCtrl.showProfile" >
     <h3 class="h3header">Brewery Locations</h3>
     <p>Ratings are scored based on selection, atmosphere, service and food.</p>
+    <p>Data consists of breweires, brewpubs, beer bars and beer stores.</p>
     <!-- MAP IFRAME -->
     <iframe src="https://beerswall99.herokuapp.com/maps/map-overall-rating.html" scrolling="no" style=" width: 850px; height: 600px;  overflow: hidden;"></iframe>
     <!-- MAP IFRAME -->
@@ -269,7 +276,8 @@
   </section>
 
 </main>
-<footer>
+<footer class="footer navbar-fixed-bottom">
+  &#127866;
 </footer>
   </body>
 </html>
