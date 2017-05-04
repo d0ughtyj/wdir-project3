@@ -34,10 +34,14 @@
   <body ng-controller = 'MainController as main'>
     <!-- HEADER -->
     <header>
-      <h1 id="title">99 Bottles of Beer on the Wall</h1>
-      <i class="fa fa-beer fa-5x"><span id="question">?</span></i>
+      <h1 ng-click="main.decBeers()" id="title">{{main.numBeers}} Bottles of Beer on the Wall</h1>
+      <i ng-hide="main.todpia===true" class="fa fa-beer fa-5x"><span id="question">?</span></i>
+    <h6 ng-show="main.todpia===true"id="todpia">Take One Down, Pass it Around!</h6>
       <div id="modal">
       <div id="modal-text-area">
+        <div id="modal-footer">
+          <h2 id="closeBtn">X</h2>
+        </div>
         <h1 id="modal-header">How do I use this site?</h1>
         <p>Discover recommendations of beer styles based on your preferences!</p><p>Use the sliders to set ranges for IBU, ABV and SRM to filter the list.  Click on a style for more information.  Favorite a style to save it to your profile.  Click on the Brewery information to find locations serving and making beer near you!</p>
         <h1 id="modal-header">What do these terms mean?</h1>
@@ -47,9 +51,6 @@
         <p><strong>ABV - </strong>Unlike hard liquor, beers aren't measured by proof, but most commonly by Alcohol By Volume. This number simply lets you know what percentage of your beer is alcohol. Brewers take samples of beer as it ferments to see how much sugar the yeast is converting into alcohol, and tweak the batch to get to the final level of booziness they're looking for.   Simply put, the higher the ABV, the more drunk you’ll get.</p>
         <p>Beer is 2%–12% (usually 4%–6%).</p>
         <p><strong>SRM - </strong>Standard Reference Method measures the color of the beer in your glass—the higher the number, the darker the beer. But color does not necessarily equal flavor: while it's easy to make overarching judgments and think that pale gold beers are light in flavor, amber beers are sweet and malty, and near-black beers are super roasty.  The range is defined from 0 - 40, from a pale lager at the lightest to an imperial stout at the darkest.  Dark colors past 25 are often discernable.</p>
-        <div id="modal-footer">
-          <button id="closeBtn">X</button>
-        </div>
       </div>
     </div>
     </header>
@@ -60,15 +61,19 @@
       <div id="container" class="col-sx-12">
         <nav>
         <section class="clsUsername col-xs-6">
-            <h6 ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true" id="userprofile">User Profile</h6>
+            <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile">User Profile</h6>
+            <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile">Return</h6>
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
 
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
-              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration">
-                <h6><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register | Log In</h6>
+              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false; userCtrl.loginError=false">
+                <h6 style="display:inline"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
+              </span><span ng-if="!userCtrl.loggedIn" class="registerButton"
+              ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false">
+                <h6 style="display:inline"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log In</h6>
               </span>
               <span ng-if="userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.logout()">
@@ -107,10 +112,10 @@
               </form>
           </section>
       <section class="clsRegisterError">
-          <h2 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h2>
+          <h4 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h4>
       </section>
       <section class="clsLogin">
-              <form ng-if="userCtrl.showRegistration" class="form-inline" ng-submit="userCtrl.login()">
+              <form ng-if="userCtrl.showLogin" class="form-inline" ng-submit="userCtrl.login()">
                 <br><h3>Log In</h3>
                 <div class="form-group">
                   <label for="userCtrl.loginForm.username">Username</label><br/>
@@ -156,11 +161,19 @@
         </div><br/>
             <div class="form-group">
             <button class="register-form-button btn btn-default" type="submit">Update</button>
-            <button ng-click="userCtrl.deleteUser(userCtrl.user._id)" class="btn btn-danger">Delete User</button>
           </div>
+          <button id="openD" class="btn btn-danger">Delete User</button>
+
         </form>
+        <div id="modalDelete">
+          <div id="modal-delete-text-area">
+            Are you sure you want to delete your account?</br>
+            <button ng-click="userCtrl.deleteUser(userCtrl.user._id)" class="btn btn-danger">Yes</button>
+            <button id="closeDelete" class="btn btn-success">No</button>
+          </div>
+          <p ng-if="main.getDeleteModal()"></p>
         </div>
-        <button ng-click="userCtrl.showProfile=false">Return to Search</button>
+        </div>
       </section>
       <br/>
       <hr>
@@ -171,6 +184,7 @@
               <li class="favlistname">
                 <div class="favorite">
                 {{beer.name}}
+                <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
               <!-- </br> PUT FAV HEART HERE -->
                 <div class="profilestats">
                   <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
@@ -203,7 +217,7 @@
       </div>
       <!-- <div ng-style="{'background-color': main.getColor(srmSlider.min)}"> -->
 
-        <div ng-style="{'background-image':'-webkit-gradient(linear, left top, right top,   color-stop(0%,'+ main.getColor(srmSlider.min)+'), color-stop(50%, '+main.getMiddleColor(srmSlider.max, srmSlider.min)+'), color-stop(100%, '+main.getColor(srmSlider.max)+'))'}">
+        <div id="srmSlider" ng-style="{'background-image':'-webkit-gradient(linear, left top, right top,   color-stop(0%,'+ main.getColor(srmSlider.min)+'), color-stop(50%, '+main.getMiddleColor(srmSlider.max, srmSlider.min)+'), color-stop(100%, '+main.getColor(srmSlider.max)+'))'}">
 
 
         <h5>Standard Reference Method</h5>
@@ -216,6 +230,7 @@
     <section id="listandshow">
       <!-- LIST OF STYLES -->
       <div id="left">
+      </br>
         <ul>
           <li ng-click="main.getBeer(userCtrl.user, beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
               {{beers.name}}
