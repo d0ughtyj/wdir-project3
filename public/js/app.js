@@ -253,7 +253,7 @@ $closeBtn.click(function() {
   				console.log('Logged in user: ', response.data);
   				self.user = response.data.user;
   				self.loggedIn = true;
-  				self.showRegistration = false;
+  				self.showLogin = false;
   				self.loginError =null;
   			}
   		});

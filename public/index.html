@@ -54,15 +54,19 @@
       <div id="container" class="col-sx-12">
         <nav>
         <section class="clsUsername col-xs-6">
-            <h6 ng-if="userCtrl.loggedIn" ng-click="userCtrl.showProfile=true" id="userprofile">User Profile</h6>
+            <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile">User Profile</h6>
+            <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile">Return</h6>
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
 
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
-              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration">
-                <h6><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register | Log In</h6>
+              ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false">
+                <h6><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
+              </span><span ng-if="!userCtrl.loggedIn" class="registerButton"
+              ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false">
+                <h6><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log In</h6>
               </span>
               <span ng-if="userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.logout()">
@@ -104,7 +108,7 @@
           <h2 class="register-error" ng-if="userCtrl.loginError">{{userCtrl.loginError}}</h2>
       </section>
       <section class="clsLogin">
-              <form ng-if="userCtrl.showRegistration" class="form-inline" ng-submit="userCtrl.login()">
+              <form ng-if="userCtrl.showLogin" class="form-inline" ng-submit="userCtrl.login()">
                 <br><h3>Log In</h3>
                 <div class="form-group">
                   <label for="userCtrl.loginForm.username">Username</label><br/>
@@ -154,7 +158,6 @@
           </div>
         </form>
         </div>
-        <button ng-click="userCtrl.showProfile=false">Return to Search</button>
       </section>
       <br/>
       <hr>
@@ -165,6 +168,7 @@
               <li class="favlistname">
                 <div class="favorite">
                 {{beer.name}}
+                <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
               <!-- </br> PUT FAV HEART HERE -->
                 <div class="profilestats">
                   <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
