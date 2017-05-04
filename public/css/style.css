@@ -135,9 +135,11 @@ h5 {
 #listandshow {
   display: flex;
   justify-content: space-between;
+  /*box-shadow: 0 5px 10px 5px #36080B;*/
 }
 
 #left {
+  padding-left: 20px;
   width: 50%;
   height: 350px;
   overflow: auto;
@@ -145,7 +147,10 @@ h5 {
 
 #right {
   width: 50%;
-  padding: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
+  height: 350px;
+  overflow: auto;
 }
 
 #favorite {
