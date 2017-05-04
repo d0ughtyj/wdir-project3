@@ -264,5 +264,13 @@ strong {
   text-align: center;
   font-family: 'Sancreek', cursive;
   font-size: 25px;
-  color: #8D2603; 
+  color: #8D2603;
+}
+
+footer {
+  background-color: #36080B;
+  background-image: url('https://s3-us-west-2.amazonaws.com/homebrewassoc/wp-content/uploads/2015/01/beer-foam-featured.jpg');
+  color: #FEF7E9;
+  margin-top: 25px;
+  height: 75px;
 }
