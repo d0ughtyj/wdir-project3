@@ -6,20 +6,20 @@ Discover recommendations of beer styles based on your preferences!  Use the slid
 
 **Guest Sign In**:  username: guest | password: guest123
 
-![](http://i.imgur.com/nPygxhC.png)
+![](http://i.imgur.com/j2lui3i.png)
 
 ### Filter Selections and Favorite
-IMAGE
+![](http://i.imgur.com/R0Y7PuO.png)
 
 ### Locate Breweries and Bars
-IMAGE
+![](http://i.imgur.com/PrLiYfz.png)
 
 ### Technologies Used
 
 ```
 + Mongo, Express, AngularJS, Node
 + Express sessions, bcrypt
-+ AngularJS Slider
++ Slider Directive
 + Google Fusion Tables + ng-map AngularJS Google Maps V3 Directive
 + API (BreweryDB, The Beer Mapping Project)
 + HTML, Javascript, jQuery
@@ -38,6 +38,7 @@ IMAGE
 
 ### Known Issues
 + Brewery data includes entry errors, such as incorrect country.  Data uploaded via geocaching based on location name.  All locations should be United States at this time.  Ratings are based on inconsistent user feedback.
++ Beer Style data incomplete.
 + Connectivity of Google Fusion Tables to AngularJS.
 
 ### Resources
@@ -46,6 +47,7 @@ IMAGE
 + [SRM](https://en.wikipedia.org/wiki/Standard_Reference_Method) & [SRM Palette](http://www.cloneabeer.com/CABebc.php)
 + [Users and Sessions](https://github.com/singular000/botch_app/blob/master/public/js/app.js )
 + [Authentication](https://codepen.io/aronrodrigues/pen/YXvBWW)
++ [Angular JS Slider](https://github.com/angular-slider/angularjs-slider)
 + [99 Bottles of Beer on the Wall Lyrics](http://www.99-bottles-of-beer.net/lyrics.html)
 + [Color Palette](http://i.imgur.com/2XM2vid.png)
 
