@@ -220,6 +220,7 @@
     <section id="listandshow">
       <!-- LIST OF STYLES -->
       <div id="left">
+      </br>
         <ul>
           <li ng-click="main.getBeer(userCtrl.user, beers)" ng-repeat = "beers in main.beers | orderBy: 'name' | filter:byRange('ibuMin', 'ibuMax', 'abvMin', 'abvMax', 'srmMin', 'srmMax', ibuSlider.min, ibuSlider.max, abvSlider.min, abvSlider.max, srmSlider.min, srmSlider.max)">
               {{beers.name}}
