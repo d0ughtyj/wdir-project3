@@ -67,8 +67,8 @@
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Profile</h6>
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Return to Search</h6>
             <!-- MAP SHOW AND HIDE BUTTONS -->
-            <h6 id="mapbtn" ng-click="main.showMap=true; main.showSearch = false" ng-show="!main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>View Brewery Map</h6>
-            <h6 id="mapbtn" ng-click="main.showMap=false; main.showSearch = true" ng-show="main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>Hide Brewery Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=true; main.showSearch = false" ng-show="!main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>View Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=false; main.showSearch = true" ng-show="main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-search"></span>View Search</h6>
             <!-- MAP SHOW AND HIDE BUTTONS END -->
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
@@ -266,6 +266,7 @@
   <section id="iframetag" ng-if="main.showMap && !main.showSearch && !userCtrl.showProfile" >
     <h3 class="h3header">Brewery Locations</h3>
     <p>Ratings are scored based on selection, atmosphere, service and food.</p>
+    <p>Data consists of breweires, brewpubs, beer bars and beer stores.</p>
     <!-- MAP IFRAME -->
     <iframe src="https://beerswall99.herokuapp.com/maps/map-overall-rating.html" scrolling="no" style=" width: 850px; height: 600px;  overflow: hidden;"></iframe>
     <!-- MAP IFRAME -->
