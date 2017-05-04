@@ -15,7 +15,9 @@ header {
   font-family: 'Rye', cursive;
   display: flex;
   justify-content: space-between;
+  height: 90px;
 }
+
 
 #title {
   margin: 0;

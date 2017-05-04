@@ -5,6 +5,22 @@ app.controller("MainController", ['$scope', '$timeout', '$http', function($scope
   var controller = this;
   this.swapper = 0;
   this.showMap = false;
+  this.numBeers=99;
+  this.todpia=false;
+
+  this.decBeers = function(){
+    this.todpia=true;
+    var that=this;
+    $timeout(function(){that.todpia=false;
+    console.log("dec!");
+    if(that.numBeers===0){
+      this.numBeers=99;
+    }else{
+      that.numBeers--;
+    }
+    },2000);
+
+  };
 
 //**************************************************//
 // show main map
