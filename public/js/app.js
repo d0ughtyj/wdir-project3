@@ -180,6 +180,7 @@ this.searchBeers = function(){
       url: '/beers'
     }).then(function(response){
       controller.beers = response.data;
+      controller.selectedBeer=(controller.beers[Math.floor((Math.random()*controller.beers.length)+1)]);
     });
   };
   this.getBeers();
