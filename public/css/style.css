@@ -46,6 +46,10 @@ i {
   cursor: pointer;
 }
 
+#srmSlider{
+  border-radius: 10px;
+}
+
 nav {
   text-align: right;
   padding-right: 25px;
