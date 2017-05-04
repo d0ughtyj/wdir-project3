@@ -72,7 +72,7 @@
               ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false; userCtrl.loginError=false">
                 <h6 style="display:inline"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
               </span><span ng-if="!userCtrl.loggedIn" class="registerButton"
-              ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false">
+              ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false; userCtrl.loginError=false">
                 <h6 style="display:inline"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log In</h6>
               </span>
               <span ng-if="userCtrl.loggedIn" class="registerButton"
