@@ -69,10 +69,10 @@
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false">
-                <h6><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
+                <h6 style="display:inline"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Register</h6>
               </span><span ng-if="!userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.showLogin = !userCtrl.showLogin; userCtrl.showRegistration=false">
-                <h6><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log In</h6>
+                <h6 style="display:inline"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log In</h6>
               </span>
               <span ng-if="userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.logout()">
