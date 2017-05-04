@@ -236,12 +236,15 @@ strong {
 }
 
 .favorite {
-  border: 5px solid #36080B;
+  border: 2px solid #36080B;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
   height: 170px;
-  width: 300px;
+  width: 250px;
   padding: 20px;
   text-align: center;
   margin-top: 5px;
+  background-color: #FEFDFE;
 }
 
 .favlistname:hover {
@@ -250,5 +253,16 @@ strong {
 }
 
 .profilestats {
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+#openD {
+  width: 106px;
+}
+
+#favheader {
+  text-align: center;
+  font-family: 'Sancreek', cursive;
+  font-size: 25px;
+  color: #8D2603; 
 }
