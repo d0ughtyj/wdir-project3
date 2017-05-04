@@ -3,8 +3,25 @@ var app = angular.module('BeersApp', ['rzModule']);
 
 app.controller("MainController", ['$scope', '$timeout', '$http', function($scope, $timeout, $http){
   var controller = this;
+  this.showSearch = true;
   this.swapper = 0;
   this.showMap = false;
+  this.numBeers=99;
+  this.todpia=false;
+
+  this.decBeers = function(){
+    this.todpia=true;
+    var that=this;
+    $timeout(function(){that.todpia=false;
+    console.log("dec!");
+    if(that.numBeers===0){
+      this.numBeers=99;
+    }else{
+      that.numBeers--;
+    }
+    },2000);
+
+  };
 
 //**************************************************//
 // show main map
@@ -163,6 +180,7 @@ this.searchBeers = function(){
       url: '/beers'
     }).then(function(response){
       controller.beers = response.data;
+      controller.selectedBeer=(controller.beers[Math.floor((Math.random()*controller.beers.length)+1)]);
     });
   };
   this.getBeers();
@@ -186,6 +204,24 @@ $closeBtn.click(function() {
   });
 });
 
+this.getDeleteModal = function(){
+var $openD = $('#openD');
+var $modalDelete = $('#modalDelete');
+var $closeDelete = $('#closeDelete');
+$openD.click(function() {
+  $scope.$apply(function() {
+    console.log('open clicked');
+    $modalDelete.css('display', 'block');
+  });
+});
+$closeDelete.click(function() {
+  $scope.$apply(function(){
+    console.log('close clicked');
+    $modalDelete.css('display', 'none');
+  });
+});
+};
+
 }]);//main controller close
 
 
@@ -199,7 +235,7 @@ $closeBtn.click(function() {
   	this.user = {};
   	this.loggedIn = false;
   	this.loginError = null;
-
+    this.user.totalBeers = 0;
   	//************************************************************//
   	this.getUser = function(next) {
   		console.log('get user.....');
@@ -239,10 +275,10 @@ $closeBtn.click(function() {
   			}
   		});
     }else{
-      self.loginError = "Passwords Do Not Match";
+      self.loginError = "Passwords do not match";
       self.registerForm = {};
     }}else{
-      self.loginError = "Password Must be at Least 8 characters";
+      self.loginError = "Password must be at least 8 characters";
       self.registerForm = {};
     }
   	};
@@ -262,7 +298,7 @@ $closeBtn.click(function() {
   				console.log('Logged in user: ', response.data);
   				self.user = response.data.user;
   				self.loggedIn = true;
-  				self.showRegistration = false;
+  				self.showLogin = false;
   				self.loginError =null;
   			}
   		});
@@ -298,10 +334,10 @@ $closeBtn.click(function() {
       }
     });
   }else{
-    self.loginError = "Passwords Do Not Match";
+    self.loginError = "Passwords do not match";
     self.registerForm = {};
   }}else{
-    self.loginError = "Password Must be at Least 8 characters";
+    self.loginError = "Password must be at least 8 characters";
     self.registerForm = {};
   }
   };
@@ -328,6 +364,7 @@ $closeBtn.click(function() {
     }).then(function(response) {
       if (response.data.status == 200) {
         self.user.favoriteBeers.push(beer);
+        self.user.totalBeers=self.user.favoriteBeers.length;
         console.log(self);
         console.log('added favorite');
       } else {
@@ -349,6 +386,7 @@ $closeBtn.click(function() {
           }
         }
         self.user.favoriteBeers.splice(bi, 1);
+        self.user.totalBeers=self.user.favoriteBeers.length;
         console.log('removed favorite');
       } else {
         console.log('error removing favorite');
