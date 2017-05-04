@@ -3,6 +3,7 @@ var app = angular.module('BeersApp', ['rzModule']);
 
 app.controller("MainController", ['$scope', '$timeout', '$http', function($scope, $timeout, $http){
   var controller = this;
+  this.showSearch = true;
   this.swapper = 0;
   this.showMap = false;
   this.numBeers=99;
