@@ -33,6 +33,8 @@
   </head>
   <body ng-controller = 'MainController as main'>
     <!-- HEADER -->
+
+
     <header>
       <h1 ng-click="main.decBeers()" id="title">{{main.numBeers}} Bottles of Beer on the Wall</h1>
       <i ng-hide="main.todpia===true" class="fa fa-beer fa-5x"><span id="question">?</span></i>
@@ -70,7 +72,6 @@
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
-
         <section class="clsLoginLogout col-xs-6">
               <span ng-if="!userCtrl.loggedIn" class="registerButton"
               ng-click="userCtrl.showRegistration = !userCtrl.showRegistration; userCtrl.showLogin = false; userCtrl.loginError=false">
@@ -135,7 +136,6 @@
               </form>
         </section>
         </div>
-    </div>
         <!-- USER PROFILE ACCESS -->
     <div id="userProfile" ng-if="userCtrl.showProfile==true">
     <section class="clsRegister">
