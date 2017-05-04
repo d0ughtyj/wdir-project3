@@ -234,7 +234,7 @@ $closeDelete.click(function() {
   	this.user = {};
   	this.loggedIn = false;
   	this.loginError = null;
-
+    this.user.totalBeers = 0;
   	//************************************************************//
   	this.getUser = function(next) {
   		console.log('get user.....');
@@ -363,6 +363,7 @@ $closeDelete.click(function() {
     }).then(function(response) {
       if (response.data.status == 200) {
         self.user.favoriteBeers.push(beer);
+        self.user.totalBeers=self.user.favoriteBeers.length;
         console.log(self);
         console.log('added favorite');
       } else {
@@ -384,6 +385,7 @@ $closeDelete.click(function() {
           }
         }
         self.user.favoriteBeers.splice(bi, 1);
+        self.user.totalBeers=self.user.favoriteBeers.length;
         console.log('removed favorite');
       } else {
         console.log('error removing favorite');
