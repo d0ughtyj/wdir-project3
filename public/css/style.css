@@ -229,6 +229,10 @@ strong {
   text-align: left;
 }
 
+#mapbtn {
+    text-align: left;
+}
+
 #favlist {
   display: flex;
   flex-wrap: wrap;
@@ -260,7 +264,7 @@ strong {
   width: 106px;
 }
 
-#favheader {
+.h3header {
   text-align: center;
   font-family: 'Sancreek', cursive;
   font-size: 25px;
@@ -273,4 +277,13 @@ footer {
   color: #FEF7E9;
   margin-top: 25px;
   height: 75px;
+}
+
+iframe {
+  border: none;
+  margin: 0 auto;
+}
+
+#iframetag {
+  text-align: center;
 }

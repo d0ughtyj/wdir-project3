@@ -63,6 +63,10 @@
         <section class="clsUsername col-xs-6">
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Profile</h6>
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Return to Search</h6>
+            <!-- MAP SHOW AND HIDE BUTTONS -->
+            <h6 id="mapbtn" ng-click="main.showMap=true" ng-show="!main.showMap"><span class="glyphicon glyphicon-map-marker"></span>View Brewery Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=false" ng-show="main.showMap"><span class="glyphicon glyphicon-map-marker"></span>Hide Brewery Map</h6>
+            <!-- MAP SHOW AND HIDE BUTTONS END -->
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
         </section>
@@ -177,7 +181,7 @@
         </div>
       </section>
       <br/>
-      <h3 id="favheader">Favorited Styles</h3>
+      <h3 class="h3header">Favorited Styles</h3>
       <br/>
       <div id="favlist">
         <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
@@ -257,12 +261,12 @@
     </section>
   </div>
 
-  <!-- MAP SHOW AND HIDE BUTTONS -->
-  <button ng-click="main.showMap=true" ng-show="!main.showMap">View Brewery Map</button>
-  <button ng-click="main.showMap=false" ng-show="main.showMap">Hide Brewery Map</button>
-  <!-- MAP SHOW AND HIDE BUTTONS END -->
-
-  <iframe ng-show="main.showMap" src="https://beerswall99.herokuapp.com/maps/map-overall-rating.html" width="900px" height="750px"></iframe>
+  <section id="iframetag" ng-show="main.showMap" >
+    <h3 class="h3header">Brewery Locations</h3>
+    <p>Ratings are scored based on selection, atmosphere, service and food.</p>
+    <!-- MAP IFRAME -->
+    <iframe src="http://localhost:3000/maps/map-overall-rating.html" scrolling="no" style=" width: 850px; height: 600px;  overflow: hidden;"></iframe>
+    <!-- MAP IFRAME -->
 
   </section>
 
