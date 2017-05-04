@@ -229,6 +229,10 @@ strong {
   text-align: left;
 }
 
+#mapbtn {
+    text-align: left;
+}
+
 #favlist {
   display: flex;
   flex-wrap: wrap;
@@ -236,12 +240,15 @@ strong {
 }
 
 .favorite {
-  border: 5px solid #36080B;
+  border: 2px solid #36080B;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
   height: 170px;
-  width: 300px;
+  width: 250px;
   padding: 20px;
   text-align: center;
   margin-top: 5px;
+  background-color: #FEFDFE;
 }
 
 .favlistname:hover {
@@ -250,5 +257,33 @@ strong {
 }
 
 .profilestats {
+  margin-top: 15px;
+}
+
+#openD {
+  width: 106px;
+}
+
+.h3header {
+  text-align: center;
+  font-family: 'Sancreek', cursive;
+  font-size: 25px;
+  color: #8D2603;
+}
+
+footer {
+  background-color: #36080B;
+  background-image: url('https://s3-us-west-2.amazonaws.com/homebrewassoc/wp-content/uploads/2015/01/beer-foam-featured.jpg');
+  color: #FEF7E9;
   margin-top: 25px;
+  height: 75px;
+}
+
+iframe {
+  border: none;
+  margin: 0 auto;
+}
+
+#iframetag {
+  text-align: center;
 }

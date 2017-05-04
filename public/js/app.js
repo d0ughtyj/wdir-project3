@@ -273,10 +273,10 @@ $closeDelete.click(function() {
   			}
   		});
     }else{
-      self.loginError = "Passwords Do Not Match";
+      self.loginError = "Passwords do not match";
       self.registerForm = {};
     }}else{
-      self.loginError = "Password Must be at Least 8 characters";
+      self.loginError = "Password must be at least 8 characters";
       self.registerForm = {};
     }
   	};
@@ -332,10 +332,10 @@ $closeDelete.click(function() {
       }
     });
   }else{
-    self.loginError = "Passwords Do Not Match";
+    self.loginError = "Passwords do not match";
     self.registerForm = {};
   }}else{
-    self.loginError = "Password Must be at Least 8 characters";
+    self.loginError = "Password must be at least 8 characters";
     self.registerForm = {};
   }
   };
