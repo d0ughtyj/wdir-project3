@@ -203,7 +203,6 @@ $closeBtn.click(function() {
 });
 
 this.getDeleteModal = function(){
-  console.log('getting this');
 var $openD = $('#openD');
 var $modalDelete = $('#modalDelete');
 var $closeDelete = $('#closeDelete');
@@ -220,7 +219,6 @@ $closeDelete.click(function() {
   });
 });
 };
-
 
 }]);//main controller close
 
