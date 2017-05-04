@@ -64,8 +64,8 @@
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==false" ng-click="userCtrl.showProfile=true" id="userprofile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Profile</h6>
             <h6 ng-if="userCtrl.loggedIn && userCtrl.showProfile==true" ng-click="userCtrl.showProfile=false" id="userprofile"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Return to Search</h6>
             <!-- MAP SHOW AND HIDE BUTTONS -->
-            <h6 id="mapbtn" ng-click="main.showMap=true" ng-show="!main.showMap"><span class="glyphicon glyphicon-map-marker"></span>View Brewery Map</h6>
-            <h6 id="mapbtn" ng-click="main.showMap=false" ng-show="main.showMap"><span class="glyphicon glyphicon-map-marker"></span>Hide Brewery Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=true; main.showSearch = false" ng-show="!main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>View Brewery Map</h6>
+            <h6 id="mapbtn" ng-click="main.showMap=false; main.showSearch = true" ng-show="main.showMap && !userCtrl.showProfile"><span class="glyphicon glyphicon-map-marker"></span>Hide Brewery Map</h6>
             <!-- MAP SHOW AND HIDE BUTTONS END -->
               <!-- <span ng-if="userCtrl.loggedIn" id="user-message"><h6>Welcome: {{ userCtrl.user.username }}</h6></span> -->
               <span ng-if="!userCtrl.loggedIn" id="user-message"></span>
@@ -138,7 +138,6 @@
     </div>
         <!-- USER PROFILE ACCESS -->
     <div id="userProfile" ng-if="userCtrl.showProfile==true">
-
     <section class="clsRegister">
         <div id="registration-container">
           <form class="form-inline" ng-submit="userCtrl.update(userCtrl.user)">
@@ -201,8 +200,7 @@
         </div>
       </div>
     </div>
-
-    <div ng-if="userCtrl.showProfile===false">
+    <div ng-if="!userCtrl.showProfile && main.showSearch">
   <!-- SLIDERS -->
     <section class="sliders">
       <div>
@@ -261,7 +259,7 @@
     </section>
   </div>
 
-  <section id="iframetag" ng-show="main.showMap" >
+  <section id="iframetag" ng-if="main.showMap && !main.showSearch && !userCtrl.showProfile" >
     <h3 class="h3header">Brewery Locations</h3>
     <p>Ratings are scored based on selection, atmosphere, service and food.</p>
     <!-- MAP IFRAME -->
