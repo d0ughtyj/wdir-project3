@@ -237,19 +237,19 @@ strong {
 #favlist {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .favorite {
   border: 2px solid #36080B;
   border-radius: 10px;
-  box-shadow: 10px 10px 5px #888888;
-  height: 170px;
+  /*box-shadow: 10px 10px 5px #888888;*/
+  height: 200px;
   width: 250px;
   padding: 20px;
   text-align: center;
   margin-top: 5px;
-  background-color: #FEFDFE;
+  background-color: #FEF7E9;
 }
 
 .favlistname:hover {
@@ -275,9 +275,7 @@ strong {
 footer {
   background-color: #36080B;
   color: #FEF7E9;
-  bottom: 0;
   height: 25px;
-  clear: both;
   text-align: center;
 }
 
@@ -296,4 +294,26 @@ iframe {
 
 #todpia:hover {
   color: #FEF7E9;
+}
+
+#thewall {
+  background-color: #36080B;
+  padding: 25px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.walltext {
+  color: #FEF7E9;
+  text-align: center;
+  font-family: 'Sancreek', cursive;
+  font-size: 40px;
+}
+
+img {
+  height: 25px;
+  width: 25px;
+  left: 95px;
+  top: -10px;
+  position: relative;
 }

@@ -181,25 +181,30 @@
         </div>
       </section>
       <br/>
-      <h3 class="h3header">{{userCtrl.user.totalBeers}} Beers On The Wall</h3>
-      <br/>
-      <div id="favlist">
-        <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
-            <ul >
-              <li class="favlistname">
-                <div class="favorite">
-                {{beer.name}}<br/>
-                <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
-                <div class="profilestats">
-                  <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
-                  <strong>ABV:</strong> {{beer.abvMin}} - {{beer.abvMax}}</br>
-                  <strong>SRM:</strong> {{beer.srmMin}} - {{beer.srmMax}}</br>
-                </div>
-                </div>
-              </li>
-            </ul>
-        </div>
+  <section id="thewall">
+    <h3 class="walltext" class="h3header">{{userCtrl.user.totalBeers}} Beers On The Wall</h3>
+    <br/>
+    <div id="favlist">
+      <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
+          <ul >
+            <li class="favlistname">
+              <div class="favorite">
+                <img src="/images/pushpin.png"><br/>
+              {{beer.name}}<br/>
+              <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
+              <div class="profilestats">
+                <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
+                <strong>ABV:</strong> {{beer.abvMin}} - {{beer.abvMax}}</br>
+                <strong>SRM:</strong> {{beer.srmMin}} - {{beer.srmMax}}</br>
+              </div>
+              </div>
+            </li>
+          </ul>
       </div>
+    </div>
+
+  </section>
+    <br/>
     </div>
     <div ng-if="!userCtrl.showProfile && main.showSearch">
   <!-- SLIDERS -->
