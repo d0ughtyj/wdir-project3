@@ -17,10 +17,10 @@ IMAGE
 ### Technologies Used
 
 ```
-+ Mongo, Express, Angular, Node
++ Mongo, Express, AngularJS, Node
 + Express sessions, bcrypt
 + AngularJS Slider
-+ Google Fusion Tables
++ Google Fusion Tables + ng-map AngularJS Google Maps V3 Directive
 + API (BreweryDB, The Beer Mapping Project)
 + HTML, Javascript, jQuery
 + Bootstrap Framework | CSS
@@ -29,13 +29,16 @@ IMAGE
 ```
 
 ### Upcoming Features
++ Additional maps for viewing, user input for location update.
 + Profile page includes popup/expansion of description information.
 + Searchable database of specific beers.  Beer recommendations based off of style favorites.  
 + Admin user with privileges to update database of styles.
 + Routing for profile page and maps.
++ Additional complexity added to animation/transition.
 
 ### Known Issues
 + Brewery data includes entry errors, such as incorrect country.  Data uploaded via geocaching based on location name.  All locations should be United States at this time.  Ratings are based on inconsistent user feedback.
++ Connectivity of Google Fusion Tables to AngularJS.
 
 ### Resources
 + [IBU](https://en.wikipedia.org/wiki/Beer_measurement#Bitterness)
@@ -48,9 +51,11 @@ IMAGE
 
 ## API
 ![](http://i.imgur.com/bWXH2Uq.png)
+
 [BreweryDB API](http://www.brewerydb.com/developers)
 
 ![](http://i.imgur.com/njeMioq.png)
+
 [The Beer Mapping Project](https://disneytermsofuse.com/)
 
 ---
