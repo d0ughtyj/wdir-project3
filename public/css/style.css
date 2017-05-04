@@ -273,10 +273,11 @@ strong {
 
 footer {
   background-color: #36080B;
-  background-image: url('https://s3-us-west-2.amazonaws.com/homebrewassoc/wp-content/uploads/2015/01/beer-foam-featured.jpg');
   color: #FEF7E9;
-  margin-top: 25px;
-  height: 75px;
+  bottom: 0;
+  height: 25px;
+  clear: both;
+  text-align: center;
 }
 
 iframe {

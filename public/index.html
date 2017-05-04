@@ -32,6 +32,9 @@
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller = 'MainController as main'>
+    <section>
+
+    </section>
     <!-- HEADER -->
     <header>
       <h1 ng-click="main.decBeers()" id="title">{{main.numBeers}} Bottles of Beer on the Wall</h1>
@@ -85,6 +88,7 @@
               </span>
         </section>
         </nav>
+        <!-- END NAV -->
         <section class="clsRegister">
             <div ng-if="userCtrl.showRegistration" id="registration-container">
               <form class="form-inline" ng-submit="userCtrl.register()">
@@ -269,7 +273,8 @@
   </section>
 
 </main>
-<footer>
+<footer class="footer navbar-fixed-bottom">
+  &#127866;
 </footer>
   </body>
 </html>
