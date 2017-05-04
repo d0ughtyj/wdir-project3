@@ -22,6 +22,12 @@
     <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<!--- fusion tables js -->
+<link rel="stylesheet" href="/css/map.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U76XKfnUdY"
+  type="text/javascript"></script>
+  <script src="/js/map.js"></script>
+<!--- end fusion tables js -->
     <!-- FAVICON -->
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
@@ -239,6 +245,43 @@
       </div>
     </section>
   </div>
+
+  <button ng-click="main.showMap=true" ng-show="!main.showMap">Hide Map</button>
+  <button ng-click="main.showMap=false" ng-show="main.showMap">Show Map</button>
+
+  <section class="clsMap1" ng-show="main.showMap">
+      <!--- 99 beers -->
+        <div id="map-canvas">
+          <hr>
+          <h3>Brewery Locations</h3>
+          <hr>
+      <!--- end 99 beers -->
+
+        <div id="googft-mapCanvas"></div>
+        <input id="googft-legend-open" style="display:none" type="button" value="Legend"></input>
+        <div id="googft-legend">
+          <p id="googft-legend-title">Overall Rating</p>
+          <div>
+            <img class="googft-dot-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAi0lEQVR42mNgQIAoIF4NxGegdCCSHAMzEC+NijL7v3p1+v8zZ6rAdGCg4X+g+EyYorS0NNv////PxMCxsRYghbEgRQcOHCjGqmjv3kKQor0gRQ8fPmzHquj27WaQottEmxQLshubopAQI5CiEJjj54N8t3FjFth369ZlwHw3jQENgMJpIzSc1iGHEwB8p5qDBbsHtAAAAABJRU5ErkJggg=="/>
+            <span class="googft-legend-range">0 to 70</span>
+          </div>
+          <div>
+            <img class="googft-dot-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAiklEQVR42mNgQIAoIF4NxGegdCCSHAMzEC81M4v6n56++n9V1RkwbWgY+B8oPhOmKM3WNu3/zJn/MbCFRSxIYSxI0YHi4gNYFRUW7gUp2gtS9LC9/SFWRc3Nt0GKbhNtUizIbmyKjIxCQIpCYI6fD/JdVtZGsO8yMtbBfDeNAQ2AwmkjNJzWIYcTAMk+i9OhipcQAAAAAElFTkSuQmCC"/>
+            <span class="googft-legend-range">70 to 90</span>
+          </div>
+          <div>
+            <img class="googft-dot-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAiElEQVR42mNgQIAoIF4NxGegdCCSHAMzEC81izL7n746/X/VmSowbRho+B8oPhOmKM02zfb/TCzQItYCpDAWpOhA8YFirIoK9xaCFO0FKXrY/rAdq6Lm280gRbeJNikWZDc2RUYhRiBFITDHzwf5LmtjFth3GesyYL6bxoAGQOG0ERpO65DDCQDX7ovT++K9KQAAAABJRU5ErkJggg=="/>
+            <span class="googft-legend-range">90 to 100</span>
+          </div>
+          <div class="googft-legend-source">
+            <a href="data?docid=1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu" target="_blank">Source: https://beermapping.com/</a>
+          </div>
+          <input id="googft-legend-close" style="display:none" type="button" value="Hide"></input>
+        </div>
+
+      </div> <!-- 99 beers -->
+
+  </section>
 
 </main>
 

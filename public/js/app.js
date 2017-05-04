@@ -4,7 +4,16 @@ var app = angular.module('BeersApp', ['rzModule']);
 app.controller("MainController", ['$scope', '$timeout', '$http', function($scope, $timeout, $http){
   var controller = this;
   this.swapper = 0;
+  this.showMap = false;
 
+//**************************************************//
+// show main map
+this.includePathMap = 'maps/map.html';
+  console.log('show map click');
+	this.changeInclude = function(){
+		this.includePath = 'maps/map.html';
+	};
+//**************************************************//
   this.checkFavorite = function(user, beer){
     var found=false;
     for(var i=0; i<user.favoriteBeers.length; i++){
@@ -347,10 +356,17 @@ $closeBtn.click(function() {
     });
   };
 
+}]);
 
+// ******************************************************//
+app.controller('mapController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
-
-
-
+      var self = this;
+      this.mapUser = 'johnd';
+      this.mapZip = '80803';
+      this.mapState = 'CO';
+      this.mapAddress = '120 South Tejon, Colorado Springs, CO';
+      this.mapFav ='IPA';
 
 }]);
+// ******************************************************//
