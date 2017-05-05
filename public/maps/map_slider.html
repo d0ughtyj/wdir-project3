@@ -19,9 +19,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U7
 <style>
     ng-map {
       height:400px;
-      margin: 20px;
+      margin: 75px;
     }
 </style>
+<title>Brewery Locations - Google Fusion Tables</title>
 </head>
 
 <body>
@@ -29,16 +30,19 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweS-VTCVLYj2nFiijNfp80U7
   User: {{myMap.mapUser}} | Zip: {{myMap.mapZip}} | State: {{myMap.mapState}} | <br>
   Address: {{myMap.mapAddress}} | Fav: {{myMap.mapFav}} | Rating: {{myMap.mapRating}}
 </section> -->
-  <hr>
+
+  <h4 class="text-center">Brewery Locations By Review Ratings</h4>
+
   <div id="map-canvas" ng-controller='MapController as myMap'>
-    <ng-map zoom="3" center="40,-90">
-      <h3>Rating Value: {{value}}</h3>  <button ng-click="myMap.displayRating()">Update Map</button>
+    <ng-map zoom="4" center="usa">
+      Slider Value: {{value}}%  | Displayed Review Rating: {{myMap.mapRating}}%
+      <button ng-click="myMap.displayRating(value)">Update Map With New Review Rating to Display</button>
       <!-- ng-if="!myMap.render(); -->
-      <input type="range"  min="50" max="100" ng-model="value"  >
+      <input type="range"  min="50" max="100" ng-model="value">
       <fusion-tables-layer query="{
         select: 'breweries',
         from: '1df437ELtnxOP-TczX84wVLN9zUsP5v0YRU-om8bu',
-        where: 'overall > {{value}}'
+        where: 'overall > {{myMap.mapRating}}'
         }">
       </fusion-tables-layer>
       <!-- <h4>Rating: {{myMap.mapRating}}</h4> -->
