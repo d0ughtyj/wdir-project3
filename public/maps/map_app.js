@@ -1,7 +1,7 @@
 var app = angular.module('myApp', ['ngMap']);
 console.log('ng map controller loaded');
 
-  app.controller('MapController', function($scope,$timeout) {
+  app.controller('MapController', ['$scope','$window', function($scope, $window) {
     $scope.value = 75;
     var vm = this;
     console.log('mapController loaded');
@@ -10,7 +10,7 @@ console.log('ng map controller loaded');
     vm.mapState = 'CO';
     vm.mapAddress = '120 South Tejon, Colorado Springs, CO';
     vm.mapFav ='IPA';
-    vm.mapRating = 98;
+    vm.mapRating = localStorage.getItem("myRating");
     vm.showMap1 = false;
     vm.showMap2 = false;
     vm.showMap3 = false;
@@ -38,15 +38,19 @@ console.log('ng map controller loaded');
     // };
     //$scope.displayRating = function(divToShow){
 
-    vm.displayRating = function() {
-      console.log('displayRating');
+    vm.displayRating = function(num) {
+      console.log('displayRating ' + num);
+      vm.mapRating = num;
+      localStorage.setItem('myRating', num);
+      $window.location.reload();
+      vm.mapRating = localStorage.getItem("myRating");
     };
 
 
 // https://github.com/allenhwkim/angularjs-google-maps/issues/59
 
 
-  });
+  }]);
 
 // ******************************************************//
 // app.controller('MyController', function(NgMap) {
