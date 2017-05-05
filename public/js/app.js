@@ -253,6 +253,21 @@ $closeDelete.click(function() {
   	this.loggedIn = false;
   	this.loginError = null;
     this.user.totalBeers = 0;
+
+    this.getUserProfileColor = function(user){
+      var low=0;
+      var high=0;
+      var total=0;
+      for(var i=0; i<user.favoriteBeers.length; i++){
+        if(user.favoriteBeers[i].srmMin !== undefined){
+          low+=user.favoriteBeers[i].srmMin;
+          high+=user.favoriteBeers[i].srmMax;
+          total++;
+        }
+      }
+      return(Math.floor(((low/total)+(high/total))/2));
+    };
+
   	//************************************************************//
   	this.getUser = function(next) {
   		console.log('get user.....');
