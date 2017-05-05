@@ -296,12 +296,14 @@ strong {
   justify-content: space-around;
 }
 
-.favorite {
+#userBeer{
   cursor: pointer;
+}
+.favorite {
   border: 2px solid #36080B;
   border-radius: 10px;
   /*box-shadow: 10px 10px 5px #888888;*/
-  height: 200px;
+  height: 225px;
   width: 250px;
   padding: 20px;
   text-align: center;

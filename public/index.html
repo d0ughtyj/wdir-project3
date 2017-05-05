@@ -202,12 +202,12 @@
     <h3 class="walltext" class="h3header">{{userCtrl.user.totalBeers}} Beers On The Wall</h3>
     <br/>
     <div id="favlist">
-      <div ng-click="main.getUserBeer(userCtrl.user, beer); main.showBeerModal=true" ng-repeat="beer in userCtrl.user.favoriteBeers" >
+      <div ng-repeat="beer in userCtrl.user.favoriteBeers" >
           <ul >
             <li class="favlistname">
               <div class="favorite">
                 <img src="/images/pushpin.png"><br/>
-              {{beer.name}}<br/>
+              <h4 id="userBeer" ng-click="main.getUserBeer(userCtrl.user, beer); main.showBeerModal=true">{{beer.name}}</h4>
               <button ng-click="userCtrl.removeFavorite(beer); main.makeFalse()" id="favorite" class="fa fa-heart" aria-hidden="true"></button>
               <div class="profilestats">
                 <strong>IBU:</strong> {{beer.ibuMin}} - {{beer.ibuMax}}</br>
