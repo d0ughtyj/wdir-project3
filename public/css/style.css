@@ -214,6 +214,33 @@ body ::-webkit-scrollbar-thumb {
   text-align: center;
 }
 
+#modalBeer{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  /*display: none;*/
+}
+
+#modal-beer-text-area {
+  background-color: #FEF7E9;
+  height: 500px;
+  width: 625px;
+  border: 5px solid #36080B;
+  margin: 150px auto;
+  overflow: auto;
+  padding: 0px 20px 5px 20px;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
+  color: #36080B;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+
 #modal-text-area {
   background-color: #FEF7E9;
   height: 625px;
@@ -270,6 +297,7 @@ strong {
 }
 
 .favorite {
+  cursor: pointer;
   border: 2px solid #36080B;
   border-radius: 10px;
   /*box-shadow: 10px 10px 5px #888888;*/
