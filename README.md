@@ -30,8 +30,7 @@ Discover recommendations of beer styles based on your preferences!  Use the slid
 
 ### Upcoming Features
 + Additional maps for viewing, user input for location update.
-+ Responsive Map Styling/Mobile Design
-+ Profile page includes popup/expansion of description information.
++ Further responsive design.
 + Searchable database of specific beers.  Beer recommendations based off of style favorites.  
 + Admin user with privileges to update database of styles.
 + Routing for profile page and maps.
