@@ -8,6 +8,7 @@ app.controller("MainController", ['$scope', '$timeout', '$http', function($scope
   this.showMap = false;
   this.numBeers=99;
   this.todpia=false;
+  this.showBeerModal = false;
 
   this.decBeers = function(){
     this.todpia=true;
@@ -56,6 +57,11 @@ this.getBeer = function(user, beer){
   this.selectedBeer=beer;
   this.favorite=this.checkFavorite(user, beer);
   console.log(this.favorite);
+};
+
+this.getUserBeer = function(user, beer){
+  console.log("USER SELECT");
+  this.selectedUserBeer=beer;
 };
 
 this.refreshSlider = function () {
@@ -222,12 +228,14 @@ $closeDelete.click(function() {
 });
 };
 
+
 }]);//main controller close
 
 
   app.controller('userController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
   	var self = this;
+    this.showUpdate = false;
     this.showProfile = false;
   	this.isFound = false;
   	this.finding = false;
